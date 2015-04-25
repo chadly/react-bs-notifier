@@ -4,6 +4,8 @@
 
 ![screen shot](screen.png)
 
+See a [live example](http://chadly.github.io/react-bs-notifier/).
+
 ## Install
 
 ```
