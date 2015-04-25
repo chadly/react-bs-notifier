@@ -7,21 +7,24 @@ var AlertsNotifier = React.createClass({
 	},
 	getInitialState: function () {
 		return {
-			shownAlerts: this.props.alerts
+			dismissedAlerts: []
 		};
 	},
 	dismiss: function(item) {
-		//remove from shown alerts here OR call onDismiss if prop set
-		var index = this.state.shownAlerts.indexOf(item);
-
-		if (index >= 0) {
-			var newData = this.state.shownAlerts.slice(); //copy the array
-			newData.splice(index, 1); //remove element
-			this.setState({ shownAlerts: newData }); //update state
-		}
+		//TODO: remove from shown alerts here OR call onDismiss if prop set
+		var newData = this.state.dismissedAlerts.slice();
+		newData.push(item);
+		this.setState({ dismissedAlerts: newData });
 	},
 	render: function () {
-		if (this.state.shownAlerts.length < 1) {
+		var alerts = [];
+		for (var i = 0; i < this.props.alerts.length; i++) {
+			if (this.state.dismissedAlerts.indexOf(this.props.alerts[i]) < 0) {
+				alerts.push(this.props.alerts[i]);
+			}
+		}
+
+		if (alerts.length < 1) {
 			return null;
 		}
 
@@ -29,7 +32,7 @@ var AlertsNotifier = React.createClass({
 
 		return (
 			<div className="alert-notifier-container">
-				{this.state.shownAlerts.map(function (item) {
+				{alerts.map(function (item) {
 					i++;
 
 					if (["success", "info", "warning", "danger"].indexOf(item.type) < 0) {

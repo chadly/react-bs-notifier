@@ -27,11 +27,13 @@
     "url": "https://github.com/chadly/react-bs-notifier/issues"
   },
   "browserify": {
-    "transform": ["node-lessify"]
+    "transform": [
+      "node-lessify"
+    ]
   },
   "dependencies": {
-    "react": "^0.13.2",
-    "node-lessify": "0.0.10"
+    "node-lessify": "0.0.10",
+    "react": "^0.13.2"
   },
   "devDependencies": {
     "jshint": "^2.7.0",
