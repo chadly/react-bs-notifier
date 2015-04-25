@@ -1,4 +1,5 @@
-var React = require("react");
+var React = require("react/addons");
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 require("./styles.less");
 
 var AlertsNotifier = React.createClass({
@@ -24,31 +25,29 @@ var AlertsNotifier = React.createClass({
 			}
 		}
 
-		if (alerts.length < 1) {
-			return null;
-		}
-
 		var i = -1;
 
 		return (
 			<div className="alert-notifier-container">
-				{alerts.map(function (item) {
-					i++;
+				<ReactCSSTransitionGroup transitionName="alert">
+					{alerts.map(function (item) {
+						i++;
 
-					if (["success", "info", "warning", "danger"].indexOf(item.type) < 0) {
-						item.type = "info";
-					}
+						if (["success", "info", "warning", "danger"].indexOf(item.type) < 0) {
+							item.type = "info";
+						}
 
-					var css = "alert alert-dismissible alert-" + item.type;
-					var headline = item.headline ? <strong>{item.headline}&nbsp;</strong> : null;
+						var css = "alert alert-dismissible alert-" + item.type;
+						var headline = item.headline ? <strong>{item.headline}&nbsp;</strong> : null;
 
-					return (
-						<div className={css} key={i}>
-							<button type="button" className="close" title="Dismiss" onClick={this.dismiss.bind(this, item)}>&times;</button>
-							{headline}{item.message}
-						</div>
-					);
-				}.bind(this))}
+						return (
+							<div className={css} key={i}>
+								<button type="button" className="close" title="Dismiss" onClick={this.dismiss.bind(this, item)}>&times;</button>
+								{headline}{item.message}
+							</div>
+						);
+					}.bind(this))}
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}
