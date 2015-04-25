@@ -13,6 +13,9 @@ npm install react-bs-notifier --save
 ## Usage
 
 ```js
+var React = require("react");
+var Notifier = require("react-bs-notifier");
+
 var alerts = [{
 	type: "info",
 	message: "This is an information message."
@@ -29,5 +32,5 @@ var alerts = [{
 	message: "This is a success message!"
 }];
 
-React.render(<ErrorAlert alerts={alerts} />, document.getElementById("myApp"));
+React.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
 ```
