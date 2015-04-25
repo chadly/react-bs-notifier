@@ -162,7 +162,7 @@ var AlertsNotifier = React.createClass({displayName: "AlertsNotifier",
 module.exports = AlertsNotifier;
 
 },{"./styles.less":5,"react/addons":6}],5:[function(require,module,exports){
-(function() { var head = document.getElementsByTagName('head')[0]; var style = document.createElement('style'); style.type = 'text/css';var css = ".alert-notifier-container{position:fixed;top:0;left:0;width:100%;padding:5px}.alert-notifier-container .alert-enter{opacity:.01;transition:opacity .25s ease-in}.alert-notifier-container .alert-enter.alert-enter-active{opacity:1}.alert-notifier-container .alert-leave{opacity:1;transition:opacity .25s ease-in}.alert-notifier-container .alert-leave.alert-leave-active{opacity:.01}";if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style);}())
+(function() { var head = document.getElementsByTagName('head')[0]; var style = document.createElement('style'); style.type = 'text/css';var css = ".alert-notifier-container{position:fixed;top:0;left:0;width:100%;padding:5px;z-index:9999}.alert-notifier-container .alert-enter{opacity:.01;transition:opacity .25s ease-in}.alert-notifier-container .alert-enter.alert-enter-active{opacity:1}.alert-notifier-container .alert-leave{opacity:1;transition:opacity .25s ease-in}.alert-notifier-container .alert-leave.alert-leave-active{opacity:.01}";if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style);}())
 },{}],6:[function(require,module,exports){
 module.exports = require('./lib/ReactWithAddons');
 
