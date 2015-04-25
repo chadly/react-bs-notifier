@@ -1,0 +1,20 @@
+{
+  "name": "react-bs-notifier-example",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A react component to show bootstrap alert notifications",
+  "main": "alerts.js",
+  "author": "Chad Lee <npm@chadly.net>",
+  "license": "MIT",
+  "scripts": {
+    "build": "browserify -t reactify --extension=.jsx -o build.js app.jsx"
+  },
+  "dependencies": {
+    "react": "^0.13.2",
+    "react-bs-notifier": "^0.1.1"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "reactify": "^1.1.0"
+  }
+}
