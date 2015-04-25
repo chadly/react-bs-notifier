@@ -7,7 +7,7 @@
 ## Install
 
 ```
-npm install react-spinner --save
+npm install react-bs-notifier --save
 ```
 
 ## Usage
