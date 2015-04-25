@@ -131,8 +131,7 @@ var AlertsNotifier = React.createClass({displayName: "AlertsNotifier",
 			}
 		}
 
-		var i = -1;
-
+		i = -1;
 		return (
 			React.createElement("div", {className: "alert-notifier-container"}, 
 				React.createElement(ReactCSSTransitionGroup, {transitionName: "alert"}, 

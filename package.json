@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "react": "^0.13.2",
-    "react-bs-notifier": "^0.1.1"
+    "react-bs-notifier": "^0.2.0"
   },
   "devDependencies": {
     "browserify": "^9.0.8",
