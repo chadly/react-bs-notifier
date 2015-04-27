@@ -25,8 +25,7 @@ var AlertsNotifier = React.createClass({
 			}
 		}
 
-		var i = -1;
-
+		i = -1;
 		return (
 			<div className="alert-notifier-container">
 				<ReactCSSTransitionGroup transitionName="alert">
