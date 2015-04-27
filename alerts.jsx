@@ -4,7 +4,8 @@ require("./styles.less");
 
 var AlertsNotifier = React.createClass({
 	propTypes: {
-		alerts: React.PropTypes.array.isRequired
+		alerts: React.PropTypes.array.isRequired,
+		onDismiss: React.PropTypes.func
 	},
 	getInitialState: function () {
 		return {
@@ -12,10 +13,15 @@ var AlertsNotifier = React.createClass({
 		};
 	},
 	dismiss: function(item) {
-		//TODO: remove from shown alerts here OR call onDismiss if prop set
-		var newData = this.state.dismissedAlerts.slice();
-		newData.push(item);
-		this.setState({ dismissedAlerts: newData });
+		if (this.props.onDismiss) {
+			//if callback specified, call it
+			this.props.onDismiss(item);
+		} else {
+			//if no callback for dismissal, just update our state
+			var newData = this.state.dismissedAlerts.slice();
+			newData.push(item);
+			this.setState({ dismissedAlerts: newData });
+		}
 	},
 	render: function () {
 		var alerts = [];

@@ -34,3 +34,17 @@ var alerts = [{
 
 React.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
 ```
+
+### Options
+
+You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed.
+
+```js
+React.render(<Notifier alerts={alerts} onDismiss={myDismissFunc} />, document.getElementById("myApp"));
+
+function myDismissFunc(item) {
+	console.log(item);
+}
+```
+
+Instead of dismissing the notification, the component will call the `myDismissFunc`. This is a useful way to call an action to integrate this component into a [flux application](https://facebook.github.io/flux/).
