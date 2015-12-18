@@ -34,7 +34,7 @@ var AlertsNotifier = React.createClass({
 		i = -1;
 		return (
 			<div className="alert-notifier-container">
-				<ReactCSSTransitionGroup transitionName="alert">
+				<ReactCSSTransitionGroup transitionName="alert" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 					{alerts.map(function (item) {
 						i++;
 
