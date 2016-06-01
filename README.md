@@ -37,10 +37,10 @@ React.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
 
 ### Options
 
-You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed.
+You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed. You can also pass `timeout` in milliseconds to dismiss the item automatically.
 
 ```js
-React.render(<Notifier alerts={alerts} onDismiss={myDismissFunc} />, document.getElementById("myApp"));
+React.render(<Notifier alerts={alerts} onDismiss={myDismissFunc} timeout={1500} />, document.getElementById("myApp"));
 
 function myDismissFunc(item) {
 	console.log(item);

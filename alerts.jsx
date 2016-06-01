@@ -25,16 +25,22 @@ var AlertsNotifier = React.createClass({
 	},
 	render: function () {
 		var alerts = [];
+		var enterTimeout = 500;
+		var exitTimeout = 300;
+
 		for (var i = 0; i < this.props.alerts.length; i++) {
 			if (this.state.dismissedAlerts.indexOf(this.props.alerts[i]) < 0) {
-				alerts.push(this.props.alerts[i]);
+				var alert = this.props.alerts[i];
+				alerts.push(alert);
+
+				if (alert.timeout) setTimeout(this.dismiss.bind(this, alert), (alert.timeout + enterTimeout + exitTimeout));
 			}
 		}
 
 		i = -1;
 		return (
 			<div className="alert-notifier-container">
-				<ReactCSSTransitionGroup transitionName="alert" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+				<ReactCSSTransitionGroup transitionName="alert" transitionEnterTimeout={enterTimeout} transitionLeaveTimeout={exitTimeout}>
 					{alerts.map(function (item) {
 						i++;
 
