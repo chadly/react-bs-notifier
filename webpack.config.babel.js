@@ -10,7 +10,7 @@ export default {
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: ["", ".js", ".jsx", ".json"]
+		extensions: ["", ".js", ".jsx"]
 	},
 	module: {
 		loaders: [{
@@ -20,9 +20,6 @@ export default {
 			query: {
 				presets: ["react-hmre"]
 			}
-		}, {
-			test: /\.json$/,
-			loader: "json"
 		}]
 	}
 };
