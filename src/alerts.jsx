@@ -14,7 +14,7 @@ const ReactBsNotifier = ({ alerts, onDismiss, sheet }) => {
 	return (
 		<div className={classes.container}>
 			<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={ENTER_TIMEOUT} transitionLeaveTimeout={EXIT_TIMEOUT}>
-				{alerts.map((item, idx) => <Alert key={idx} item={item} onDismiss={onDismiss} />)}
+				{alerts.map((item, idx) => <Alert key={idx} type={item.type} headline={item.headline} message={item.message} onDismiss={() => onDismiss(item)} />)}
 			</ReactCSSTransitionGroup>
 		</div>
 	);

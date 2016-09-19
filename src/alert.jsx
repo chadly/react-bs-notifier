@@ -1,17 +1,17 @@
 import React from "react";
 
-const Alert = ({ item, onDismiss }) => {
-	if (["success", "info", "warning", "danger"].indexOf(item.type) < 0) {
-		item.type = "info";
+const Alert = ({ type = "info", message, headline, onDismiss }) => {
+	if (["success", "info", "warning", "danger"].indexOf(type) < 0) {
+		type = "info";
 	}
 
-	const css = "alert alert-dismissible alert-" + item.type;
-	const headline = item.headline ? <strong>{item.headline}&nbsp;</strong> : null;
+	const css = "alert alert-dismissible alert-" + type;
+	const headlineEl = headline ? <strong>{headline}&nbsp;</strong> : null;
 
 	return (
 		<div className={css}>
-			<button type="button" className="close" title="Dismiss" onClick={() => onDismiss(item)}>&times;</button>
-			{headline}{item.message}
+			<button type="button" className="close" title="Dismiss" onClick={onDismiss}>&times;</button>
+			{headlineEl}{message}
 		</div>
 	);
 };
