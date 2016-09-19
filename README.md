@@ -31,6 +31,10 @@ var alerts = [{
 	type: "success",
 	headline: "Good job!",
 	message: "This is a success message!"
+}, {
+	type: "success",
+	headline: "Good job!",
+	message: <span style={{color: 'pink'}}>This is a ping message for some reason!</span>
 }];
 
 ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElementById("myApp"));
@@ -40,7 +44,7 @@ ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElement
 
 #### `alerts`
 
-These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `headline`.
+These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `headline`. The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
 
 #### `timeout`
 
