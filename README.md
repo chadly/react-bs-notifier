@@ -74,3 +74,7 @@ npm start
 ```
 
 This will spin up a webpack dev server on port 1341. Open your browser to [localhost:1341](http://localhost:1341/) and any changes you make will build & refresh the page automatically.
+
+## Deploying Example to Github Pages
+
+Run `npm run build --production` and commit the resulting `example/index.html` & `example/build.js.*` files to the `gh-pages` branch.

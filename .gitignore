@@ -1,5 +1,4 @@
 node_modules
 /lib
 npm-debug.log
-example/build.js
-example/bootstrap.css
+example/build.*
