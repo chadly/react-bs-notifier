@@ -15,8 +15,9 @@
   "author": "Chad Lee <npm@chadly.net>",
   "license": "MIT",
   "scripts": {
-    "start": "cp node_modules/bootstrap/dist/css/bootstrap.css example && webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
+    "start": "webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
     "compile": "rimraf lib && babel src -d lib",
+    "build": "webpack --progress --bail",
     "lint": "eslint src",
     "prepublish": "npm run compile && npm run lint"
   },
@@ -48,7 +49,6 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-2": "^6.3.13",
-    "bootstrap": "^3.3.7",
     "eslint": "^3.4.0",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-react": "^6.2.0",
