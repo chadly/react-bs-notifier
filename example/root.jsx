@@ -24,7 +24,7 @@ export default class NotifierGenerator extends Component {
 	render() {
 		return (
 			<div>
-				<Notifier alerts={this.state.alerts} />
+				<Notifier alerts={this.state.alerts} timeout={3000} />
 				<div className="btn-group">
 					<button type="button" className="btn btn-info" onClick={this.generate.bind(this, 'info')}>Generate Info</button>
 					<button type="button" className="btn btn-success" onClick={this.generate.bind(this, 'success')}>Generate Success</button>

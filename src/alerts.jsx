@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes as t } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import Alert from "./alert";
@@ -27,11 +27,9 @@ class ReactBsNotifierStateContainer extends Component {
 		this.state = {
 			dismissedAlerts: []
 		};
-
-		this.dismiss = this.dismiss.bind(this);
 	}
 
-	dismiss(item) {
+	dismiss = item => {
 		if (this.props.onDismiss) {
 			// if callback specified, call it
 			this.props.onDismiss(item);
@@ -62,8 +60,9 @@ class ReactBsNotifierStateContainer extends Component {
 }
 
 ReactBsNotifierStateContainer.propTypes = {
-	alerts: React.PropTypes.array.isRequired,
-	onDismiss: React.PropTypes.func
+	alerts: t.array.isRequired,
+	onDismiss: t.func,
+	timeout: t.number
 };
 
 export default useSheet(ReactBsNotifierStateContainer, styles, { meta: __filename });

@@ -33,12 +33,22 @@ var alerts = [{
 	message: "This is a success message!"
 }];
 
-ReactDOM.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
+ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElementById("myApp"));
 ```
 
 ### Options
 
-You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed. You can also pass `timeout` in milliseconds to dismiss the item automatically.
+#### `alerts`
+
+These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `headline`.
+
+#### `timeout`
+
+An optional timeout (in milliseconds) before alerts are automatically dismissed. If not specified, an alert will not be dismissed until the user dismisses it. There is no timeout by default.
+
+#### `onDismiss`
+
+You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed. By default, if no `onDismiss` function is specified, the component will manage what alerts are dismissed as part of its internal state.
 
 ```js
 React.render(<Notifier alerts={alerts} onDismiss={myDismissFunc} timeout={1500} />, document.getElementById("myApp"));
