@@ -17,7 +17,7 @@
   "scripts": {
     "start": "cp node_modules/bootstrap/dist/css/bootstrap.css example && webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
     "compile": "rimraf lib && babel src -d lib",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "prepublish": "npm run compile && npm run lint"
   },
   "repository": {
