@@ -1,6 +1,7 @@
-var React = require("react");
-var ReactCSSTransitionGroup = require("react-addons-css-transition-group");
-require("./styles.less");
+import React from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import styles from "./alerts.styles";
+import useSheet from "./jss-preset";
 
 var AlertsNotifier = React.createClass({
 	propTypes: {
@@ -14,10 +15,10 @@ var AlertsNotifier = React.createClass({
 	},
 	dismiss: function(item) {
 		if (this.props.onDismiss) {
-			//if callback specified, call it
+			// if callback specified, call it
 			this.props.onDismiss(item);
 		} else {
-			//if no callback for dismissal, just update our state
+			// if no callback for dismissal, just update our state
 			var newData = this.state.dismissedAlerts.slice();
 			newData.push(item);
 			this.setState({ dismissedAlerts: newData });
@@ -27,6 +28,8 @@ var AlertsNotifier = React.createClass({
 		var alerts = [];
 		var enterTimeout = 500;
 		var exitTimeout = 300;
+
+		const { classes } = this.props.sheet;
 
 		for (var i = 0; i < this.props.alerts.length; i++) {
 			if (this.state.dismissedAlerts.indexOf(this.props.alerts[i]) < 0) {
@@ -39,8 +42,8 @@ var AlertsNotifier = React.createClass({
 
 		i = -1;
 		return (
-			<div className="alert-notifier-container">
-				<ReactCSSTransitionGroup transitionName="alert" transitionEnterTimeout={enterTimeout} transitionLeaveTimeout={exitTimeout}>
+			<div className={classes.container}>
+				<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={enterTimeout} transitionLeaveTimeout={exitTimeout}>
 					{alerts.map(function (item) {
 						i++;
 
@@ -64,4 +67,4 @@ var AlertsNotifier = React.createClass({
 	}
 });
 
-module.exports = AlertsNotifier;
+module.exports = useSheet(AlertsNotifier, styles, { meta: __filename });
