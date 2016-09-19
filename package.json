@@ -19,7 +19,7 @@
     "compile": "rimraf lib && babel src -d lib",
     "build": "webpack --progress --bail",
     "lint": "eslint src",
-    "prepublish": "npm run compile && npm run lint"
+    "prepublish": "npm run lint && npm run compile"
   },
   "repository": {
     "type": "git",
