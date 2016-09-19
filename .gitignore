@@ -1,5 +1,5 @@
 node_modules
-alerts.js
+/lib
 npm-debug.log
 example/build.js
 example/bootstrap.css

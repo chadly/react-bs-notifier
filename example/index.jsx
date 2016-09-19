@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AlertsNotifier from "../alerts.jsx";
+import AlertsNotifier from "../src/alerts";
 
 const Root = () => (
 	<AlertsNotifier alerts={[{

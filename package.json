@@ -11,14 +11,14 @@
     "bootstrap",
     "alerts"
   ],
-  "main": "alerts.js",
+  "main": "lib/alerts.js",
   "author": "Chad Lee <npm@chadly.net>",
   "license": "MIT",
   "scripts": {
     "start": "cp node_modules/bootstrap/dist/css/bootstrap.css example && webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
-    "build": "babel alerts.jsx > alerts.js",
+    "compile": "rimraf lib && babel src -d lib",
     "lint": "eslint .",
-    "prepublish": "npm run build && npm run lint"
+    "prepublish": "npm run compile && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -64,6 +64,8 @@
     "json-update": "^3.0.0",
     "mocha": "^2.2.5",
     "mocha-teamcity-reporter": "1.0.x",
+    "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.0",
