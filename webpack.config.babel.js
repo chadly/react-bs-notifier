@@ -1,3 +1,7 @@
+// "production" build is the build deployed to github pages
+const NODE_ENV = process.env.NODE_ENV;
+const isDebugBuild = NODE_ENV != "production";
+
 export default {
 	entry: "./example/index.jsx",
 	output: {
@@ -17,9 +21,9 @@ export default {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loader: "babel",
-			query: {
+			query: isDebugBuild ? {
 				presets: ["react-hmre"]
-			}
+			} : undefined
 		}]
 	}
 };
