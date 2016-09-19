@@ -13,8 +13,9 @@ npm install react-bs-notifier --save
 ## Usage
 
 ```js
-var React = require("react");
-var Notifier = require("react-bs-notifier");
+import React from "react";
+import ReactDOM from "react-dom";
+import Notifier from "react-bs-notifier";
 
 var alerts = [{
 	type: "info",
@@ -32,7 +33,7 @@ var alerts = [{
 	message: "This is a success message!"
 }];
 
-React.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
+ReactDOM.render(<Notifier alerts={alerts} />, document.getElementById("myApp"));
 ```
 
 ### Options
@@ -47,4 +48,15 @@ function myDismissFunc(item) {
 }
 ```
 
-Instead of dismissing the notification, the component will call the `myDismissFunc`. This is a useful way to call an action to integrate this component into a [flux application](https://facebook.github.io/flux/).
+Instead of dismissing the notification, the component will call the `myDismissFunc`. This is a useful way to call an action to integrate this component into a [redux application](http://redux.js.org/).
+
+## Running Example Locally
+
+If you clone this repo, you can run the example app locally:
+
+```
+npm install
+npm start
+```
+
+This will spin up a webpack dev server on port 1341. Open your browser to [localhost:1341](http://localhost:1341/) and any changes you make will build & refresh the page automatically.
