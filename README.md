@@ -25,7 +25,7 @@ var alerts = [{
 	message: "This is a warning message!"
 }, {
 	type: "danger",
-	headline: "Woah!",
+	headline: "Whoa!",
 	message: "This is a danger message!"
 }, {
 	type: "success",

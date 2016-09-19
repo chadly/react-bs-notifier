@@ -14,7 +14,7 @@ export default class NotifierGenerator extends Component {
 		let newData = this.state.alerts.slice();
 		newData.push({
 			type: type,
-			headline: "Woah!",
+			headline: "Whoa!",
 			message: "This is an example " + type + " message."
 		});
 
