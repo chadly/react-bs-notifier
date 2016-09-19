@@ -1,70 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+
+import Alert from "./alert";
 import styles from "./alerts.styles";
 import useSheet from "./jss-preset";
 
-var AlertsNotifier = React.createClass({
-	propTypes: {
-		alerts: React.PropTypes.array.isRequired,
-		onDismiss: React.PropTypes.func
-	},
-	getInitialState: function () {
-		return {
+const ENTER_TIMEOUT = 500;
+const EXIT_TIMEOUT = 300;
+
+const ReactBsNotifier = ({ alerts, onDismiss, sheet }) => {
+	const { classes } = sheet;
+
+	return (
+		<div className={classes.container}>
+			<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={ENTER_TIMEOUT} transitionLeaveTimeout={EXIT_TIMEOUT}>
+				{alerts.map((item, idx) => <Alert key={idx} item={item} onDismiss={onDismiss} />)}
+			</ReactCSSTransitionGroup>
+		</div>
+	);
+};
+
+class ReactBsNotifierStateContainer extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
 			dismissedAlerts: []
 		};
-	},
-	dismiss: function(item) {
+
+		this.dismiss = this.dismiss.bind(this);
+	}
+
+	dismiss(item) {
 		if (this.props.onDismiss) {
 			// if callback specified, call it
 			this.props.onDismiss(item);
 		} else {
 			// if no callback for dismissal, just update our state
-			var newData = this.state.dismissedAlerts.slice();
+			let newData = this.state.dismissedAlerts.slice();
 			newData.push(item);
 			this.setState({ dismissedAlerts: newData });
 		}
-	},
-	render: function () {
-		var alerts = [];
-		var enterTimeout = 500;
-		var exitTimeout = 300;
+	}
 
-		const { classes } = this.props.sheet;
+	render() {
+		let alerts = [];
 
 		for (var i = 0; i < this.props.alerts.length; i++) {
 			if (this.state.dismissedAlerts.indexOf(this.props.alerts[i]) < 0) {
-				var alert = this.props.alerts[i];
+				const alert = this.props.alerts[i];
 				alerts.push(alert);
 
-				if (alert.timeout) setTimeout(this.dismiss.bind(this, alert), (alert.timeout + enterTimeout + exitTimeout));
+				if (this.props.timeout) {
+					setTimeout(() => this.dismiss(alert), this.props.timeout + ENTER_TIMEOUT + EXIT_TIMEOUT);
+				}
 			}
 		}
 
-		i = -1;
-		return (
-			<div className={classes.container}>
-				<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={enterTimeout} transitionLeaveTimeout={exitTimeout}>
-					{alerts.map(function (item) {
-						i++;
-
-						if (["success", "info", "warning", "danger"].indexOf(item.type) < 0) {
-							item.type = "info";
-						}
-
-						var css = "alert alert-dismissible alert-" + item.type;
-						var headline = item.headline ? <strong>{item.headline}&nbsp;</strong> : null;
-
-						return (
-							<div className={css} key={i}>
-								<button type="button" className="close" title="Dismiss" onClick={this.dismiss.bind(this, item)}>&times;</button>
-								{headline}{item.message}
-							</div>
-						);
-					}.bind(this))}
-				</ReactCSSTransitionGroup>
-			</div>
-		);
+		return <ReactBsNotifier alerts={alerts} onDismiss={this.dismiss} sheet={this.props.sheet} />;
 	}
-});
+}
 
-module.exports = useSheet(AlertsNotifier, styles, { meta: __filename });
+ReactBsNotifierStateContainer.propTypes = {
+	alerts: React.PropTypes.array.isRequired,
+	onDismiss: React.PropTypes.func
+};
+
+export default useSheet(ReactBsNotifierStateContainer, styles, { meta: __filename });
