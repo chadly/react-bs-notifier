@@ -1,0 +1,91 @@
+parser: babel-eslint
+env:
+  browser: true
+  commonjs: true
+  es6: true
+  node: true
+globals:
+  google: false
+  Modernizr: false
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+    jsx: true
+  sourceType: module
+plugins:
+  - react
+  - filenames
+rules:
+  indent:
+    - error
+    - tab
+  quotes:
+    - error
+    - double
+  semi:
+    - error
+    - always
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  block-spacing:
+    - error
+    - always
+  object-curly-spacing:
+    - error
+    - always
+  arrow-spacing:
+    - error
+  key-spacing:
+    - error
+  keyword-spacing:
+    - error
+  no-trailing-spaces:
+    - error
+  no-whitespace-before-property:
+    - error
+  filenames/match-regex:
+    - error
+    - ^[a-z\-\.]+$
+  prefer-template:
+    - warn
+  space-before-blocks:
+    - error
+    - always
+  spaced-comment:
+    - error
+    - always
+  react/prop-types:
+    - off
+  react/prefer-stateless-function:
+    - error
+  react/prefer-es6-class:
+    - error
+    - always
+  react/jsx-wrap-multilines:
+    - error
+  react/sort-comp:
+    - error
+  react/jsx-key:
+    - error
+  react/jsx-boolean-value:
+    - error
+    - never
+  react/jsx-indent:
+    - error
+    - tab
+  react/jsx-indent-props:
+    - error
+    - tab
+  react/jsx-curly-spacing:
+    - error
+    - never
+  react/jsx-equals-spacing:
+    - error
+    - never
+  react/jsx-space-before-closing:
+    - error
