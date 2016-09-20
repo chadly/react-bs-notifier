@@ -19,9 +19,11 @@ import Notifier from "react-bs-notifier";
 
 var alerts = [{
 	type: "info",
+	id: "info123",
 	message: "This is an information message."
 }, {
 	type: "warning",
+	id: "warning456",
 	message: "This is a warning message!"
 }, {
 	type: "danger",
@@ -44,7 +46,9 @@ ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElement
 
 #### `alerts`
 
-These are the alerts that the component should render. It expects an object with properties `id` (although it will fall back to the array index), `type` & `message` with an optional `headline`. The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
+These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `id` & `headline`. `id` isn't required but strongly encouraged as it will fix some janky issues with how the alerts animate in & out. If no `id` is specified, the component will fall back to using the array index of the alert as the component key.
+
+The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
 
 #### `timeout`
 
