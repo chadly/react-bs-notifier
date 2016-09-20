@@ -1,7 +1,7 @@
 import React from "react";
 
 const Alert = ({ type = "info", message, headline, onDismiss }) => {
-	const css = "alert alert-dismissible alert-" + type;
+	const css = `alert alert-dismissible alert-${type}`;
 	const headlineEl = headline ? <strong>{headline}&nbsp;</strong> : null;
 
 	return (

@@ -18,7 +18,7 @@
     "start": "webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
     "compile": "rimraf lib && babel src -d lib",
     "build": "webpack --progress --bail",
-    "lint": "eslint src",
+    "lint": "eslint src --ext=js,jsx",
     "prepublish": "npm run lint && npm run compile"
   },
   "repository": {
