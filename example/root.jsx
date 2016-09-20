@@ -23,6 +23,10 @@ export default class NotifierGenerator extends Component {
 		this.setState({ alerts: newData });
 	}
 
+	onTimeoutChange({ target: { value } }) {
+		this.setState({ timeout: (+value) * 1000 });
+	}
+
 	render() {
 		return (
 			<div>
@@ -31,7 +35,7 @@ export default class NotifierGenerator extends Component {
 					<label htmlFor="timeout-control" className="control-label">Dismiss after</label>
 					{" "}
 					<div className="input-group">
-						<input id="timeout-control" className="form-control" type="number" value={this.state.timeout / 1000} onChange={({ target: { value } }) => this.setState({ timeout: (+value) * 1000 })} />
+						<input id="timeout-control" className="form-control" type="number" value={this.state.timeout / 1000} onChange={this.onTimeoutChange.bind(this)} />
 						<span className="input-group-addon">seconds</span>
 					</div>
 					{" "}
