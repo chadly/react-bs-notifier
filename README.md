@@ -44,7 +44,7 @@ ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElement
 
 #### `alerts`
 
-These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `headline`. The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
+These are the alerts that the component should render. It expects an object with properties `id` (although it will fall back to the array index), `type` & `message` with an optional `headline`. The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
 
 #### `timeout`
 
