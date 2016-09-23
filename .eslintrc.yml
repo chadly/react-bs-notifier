@@ -66,7 +66,7 @@ rules:
   react/prefer-es6-class:
     - error
     - always
-  react/jsx-wrap-multilines:
+  react/wrap-multilines:
     - error
   react/sort-comp:
     - error

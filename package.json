@@ -29,13 +29,15 @@
     "url": "https://github.com/chadly/react-bs-notifier/issues"
   },
   "dependencies": {
+    "json-loader": "^0.5.4",
     "jss": "5.x",
     "jss-camel-case": "2.x",
     "jss-default-unit": "4.x",
     "jss-extend": "2.x",
     "jss-nested": "2.x",
     "jss-vendor-prefixer": "3.x",
-    "react-jss": "3.x"
+    "react-jss": "3.x",
+    "toetag": "^3.3.6"
   },
   "peerDependencies": {
     "react": ">=0.14",

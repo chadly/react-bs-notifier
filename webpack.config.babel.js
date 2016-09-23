@@ -14,7 +14,7 @@ export default {
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: ["", ".js", ".jsx"]
+		extensions: ["", ".js", ".jsx", ".json"]
 	},
 	module: {
 		loaders: [{
@@ -24,6 +24,9 @@ export default {
 			query: isDebugBuild ? {
 				presets: ["react-hmre"]
 			} : undefined
+		}, {
+			test: /\.json$/,
+			loader: "json"
 		}]
 	}
 };
