@@ -1,5 +1,7 @@
 import { bootstrap } from "toetag";
 
+const MAGICAL_MAX_HEIGHT = "20em";
+
 export default {
 	container: {
 		position: "fixed",
@@ -37,12 +39,12 @@ export default {
 	enterActive: {
 		opacity: 1,
 		transform: "translateX(0)",
-		maxHeight: "30em"
+		maxHeight: MAGICAL_MAX_HEIGHT
 	},
 	leave: {
 		opacity: 1,
 		transform: "translateX(0)",
-		maxHeight: "30em",
+		maxHeight: MAGICAL_MAX_HEIGHT,
 		overflow: "hidden",
 		transition: ".25s ease-out"
 	},
