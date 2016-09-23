@@ -46,9 +46,17 @@ ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElement
 
 #### `alerts`
 
-These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `id` & `headline`. `id` isn't required but strongly encouraged as it will fix some janky issues with how the alerts animate in & out. If no `id` is specified, the component will fall back to using the array index of the alert as the component key.
+These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional (but strongly recommended) `id` & `headline`. `id` isn't required but strongly encouraged as it will fix some janky issues with how the alerts animate in & out. If no `id` is specified, the component will fall back to using the array index of the alert as the component key.
 
 The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
+
+##### Note
+
+While `message` can accept arbitrary content,
+the height animation on the alerts is static
+and based on the assumption that the content won't exceed 30em vertically.
+You probably want to avoid putting anything that long in an alert which overlaps your UI anyway
+as opposed to linking to more detail, or in the case of a stack trace simply logging it to the console. 
 
 #### `timeout`
 
