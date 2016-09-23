@@ -14,19 +14,25 @@ export default {
 	enter: {
 		opacity: 0.01,
 		transform: "translateX(-25%)",
-		transition: ".25s ease-in",
+		maxHeight: 0,
+		overflow: "hidden",
+		transition: ".25s ease-in"
 	},
 	enterActive: {
 		opacity: 1,
-		transform: "translateX(0)"
+		transform: "translateX(0)",
+		maxHeight: "30em"
 	},
 	leave: {
 		opacity: 1,
 		transform: "translateX(0)",
-		transition: ".25s ease-in"
+		maxHeight: "30em",
+		overflow: "hidden",
+		transition: ".25s ease-out"
 	},
 	leaveActive: {
 		opacity: 0.01,
-		transform: "translateX(25%)"
+		transform: "translateX(25%)",
+		maxHeight: 0
 	}
 };
