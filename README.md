@@ -59,7 +59,7 @@ The supported values for `type` are one of _info_, _warning_, _danger_, or _succ
 
 While `message` can accept arbitrary content,
 the height animation on the alerts is static
-and based on the assumption that the content won't exceed 30em vertically.
+and based on the assumption that the content won't exceed 20em vertically.
 You probably want to avoid putting anything that long in an alert which overlaps your UI anyway
 as opposed to linking to more detail, or in the case of a stack trace simply logging it to the console. 
 
