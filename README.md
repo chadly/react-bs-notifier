@@ -17,7 +17,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Notifier from "react-bs-notifier";
 
-var alerts = [{
+const alerts = [{
 	type: "info",
 	id: "info123",
 	message: "This is an information message."
@@ -36,7 +36,7 @@ var alerts = [{
 }, {
 	type: "success",
 	headline: "Good job!",
-	message: <span style={{color: 'pink'}}>This is a ping message for some reason!</span>
+	message: <span style={{color: 'pink'}}>This is a pink message for some reason!</span>
 }];
 
 ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElementById("myApp"));
@@ -59,7 +59,9 @@ An optional timeout (in milliseconds) before alerts are automatically dismissed.
 You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed. By default, if no `onDismiss` function is specified, the component will manage what alerts are dismissed as part of its internal state.
 
 ```js
-React.render(<Notifier alerts={alerts} onDismiss={myDismissFunc} timeout={1500} />, document.getElementById("myApp"));
+ReactDOM.render((
+	<Notifier alerts={alerts} onDismiss={myDismissFunc} timeout={1500} />
+), document.getElementById("myApp"));
 
 function myDismissFunc(item) {
 	console.log(item);
