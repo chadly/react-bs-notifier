@@ -8,11 +8,14 @@ import useSheet from "./jss-preset";
 const ENTER_TIMEOUT = 500;
 const EXIT_TIMEOUT = 300;
 
-const ReactBsNotifier = ({ alerts, onDismiss, sheet }) => {
-	const { classes } = sheet;
-
+const ReactBsNotifier = ({
+	position = "top-right",
+	alerts,
+	onDismiss,
+	sheet: { classes }
+}) => {
 	return (
-		<div className={classes.container}>
+		<div className={`${classes.container} ${classes[position]}`}>
 			<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={ENTER_TIMEOUT} transitionLeaveTimeout={EXIT_TIMEOUT}>
 				{alerts.map((item, idx) => <Alert key={item.id || idx} type={item.type} headline={item.headline} message={item.message} onDismiss={() => onDismiss(item)} />)}
 			</ReactCSSTransitionGroup>
@@ -55,11 +58,12 @@ class ReactBsNotifierStateContainer extends Component {
 			}
 		}
 
-		return <ReactBsNotifier alerts={alerts} onDismiss={this.dismiss} sheet={this.props.sheet} />;
+		return <ReactBsNotifier {...this.props} alerts={alerts} onDismiss={this.dismiss} sheet={this.props.sheet} />;
 	}
 }
 
 ReactBsNotifierStateContainer.propTypes = {
+	position: t.oneOf(["top-right", "top-left", "bottom-right", "bottom-left"]),
 	alerts: t.array.isRequired,
 	onDismiss: t.func,
 	timeout: t.number

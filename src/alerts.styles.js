@@ -3,13 +3,29 @@ import { bootstrap } from "toetag";
 export default {
 	container: {
 		position: "fixed",
+		paddingTop: bootstrap.paddingBaseVertical,
+		paddingRight: bootstrap.paddingBaseHorizontal,
+		paddingBottom: bootstrap.paddingBaseVertical,
+		paddingLeft: bootstrap.paddingBaseHorizontal,
+		zIndex: bootstrap.zindexNavbarFixed + 1
+	},
+	"top-right": {
 		top: 0,
 		right: 0,
 		textAlign: "right",
-		paddingTop: bootstrap.paddingBaseVertical,
-		paddingRight: bootstrap.paddingBaseHorizontal,
-		paddingLeft: bootstrap.paddingBaseHorizontal,
-		zIndex: bootstrap.zindexNavbarFixed + 1
+	},
+	"top-left": {
+		top: 0,
+		left: 0
+	},
+	"bottom-right": {
+		bottom: 0,
+		right: 0,
+		textAlign: "right"
+	},
+	"bottom-left": {
+		bottom: 0,
+		left: 0
 	},
 	enter: {
 		opacity: 0.01,

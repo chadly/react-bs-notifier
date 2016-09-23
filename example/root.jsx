@@ -6,6 +6,7 @@ export default class NotifierGenerator extends Component {
 		super(props);
 
 		this.state = {
+			position: "top-right",
 			alerts: [],
 			timeout: 0,
 			newMessage: "What an amazing world we live in"
@@ -38,6 +39,12 @@ export default class NotifierGenerator extends Component {
 		this.setState({ newMessage: value });
 	}
 
+	onPositionChange({ target: { value } }) {
+		this.setState({
+			position: value
+		});
+	}
+
 	render() {
 		const clearAllButton = this.state.alerts.length ? (
 			<button className="btn btn-link" onClick={this.clearAlerts.bind(this)}>Clear all alerts</button>
@@ -45,7 +52,7 @@ export default class NotifierGenerator extends Component {
 
 		return (
 			<div>
-				<Notifier alerts={this.state.alerts} timeout={this.state.timeout} />
+				<Notifier position={this.state.position} alerts={this.state.alerts} timeout={this.state.timeout} />
 				<div className="form-group">
 					<label htmlFor="new-message-control">Message</label>
 					<textarea
@@ -57,10 +64,21 @@ export default class NotifierGenerator extends Component {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="timeout-control" className="control-label">Dismiss after</label>
-					<div className="input-group">
-						<input id="timeout-control" className="form-control" type="number" value={this.state.timeout / 1000} onChange={this.onTimeoutChange.bind(this)} />
-						<span className="input-group-addon">seconds</span>
+					<div className="form-inline">
+						<label htmlFor="timeout-control" className="control-label">Dismiss after</label>
+						{" "}
+						<div className="input-group">
+							<input id="timeout-control" className="form-control" type="number" value={this.state.timeout / 1000} onChange={this.onTimeoutChange.bind(this)} />
+							<span className="input-group-addon">seconds</span>
+						</div>
+						{" "}
+						<label htmlFor="position-control">Position</label>
+						{" "}
+						<select onChange={this.onPositionChange.bind(this)} className="form-control" id="position-control">
+							{["top-right", "top-left", "bottom-right", "bottom-left"].map(p => (
+								<option key={p} value={p}>{p}</option>
+							))}
+						</select>
 					</div>
 				</div>
 				<div className="form-group text-right">

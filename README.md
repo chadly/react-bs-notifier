@@ -44,6 +44,11 @@ ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElement
 
 ### Options
 
+#### `position`
+
+The corner in which alerts appear.
+One of `"top-right"` (default), `"top-left"`, `"bottom-right"`, `"bottom-left"`.
+
 #### `alerts`
 
 These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional (but strongly recommended) `id` & `headline`. `id` isn't required but strongly encouraged as it will fix some janky issues with how the alerts animate in & out. If no `id` is specified, the component will fall back to using the array index of the alert as the component key.

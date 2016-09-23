@@ -1,11 +1,12 @@
 {
   "name": "react-bs-notifier",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A react component to show growl-like notifications using bootstrap alerts",
   "keywords": [
     "react-component",
     "react",
     "growl",
+    "toaster",
     "notifier",
     "notifications",
     "bootstrap",
