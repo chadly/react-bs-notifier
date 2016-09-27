@@ -30,7 +30,6 @@
     "url": "https://github.com/chadly/react-bs-notifier/issues"
   },
   "dependencies": {
-    "json-loader": "^0.5.4",
     "jss": "5.x",
     "jss-camel-case": "2.x",
     "jss-default-unit": "4.x",
@@ -38,7 +37,7 @@
     "jss-nested": "2.x",
     "jss-vendor-prefixer": "3.x",
     "react-jss": "3.x",
-    "toetag": "^3.3.6"
+    "toetag": "3.3.x"
   },
   "peerDependencies": {
     "react": ">=0.14",
@@ -55,6 +54,7 @@
     "eslint": "^3.4.0",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-react": "^6.2.0",
+    "json-loader": "0.5.x",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
