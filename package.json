@@ -1,11 +1,12 @@
 {
   "name": "react-bs-notifier",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A react component to show growl-like notifications using bootstrap alerts",
   "keywords": [
     "react-component",
     "react",
     "growl",
+    "toaster",
     "notifier",
     "notifications",
     "bootstrap",
@@ -35,7 +36,8 @@
     "jss-extend": "2.x",
     "jss-nested": "2.x",
     "jss-vendor-prefixer": "3.x",
-    "react-jss": "3.x"
+    "react-jss": "3.x",
+    "toetag": "3.3.x"
   },
   "peerDependencies": {
     "react": ">=0.14",
@@ -52,6 +54,7 @@
     "eslint": "^3.4.0",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-react": "^6.2.0",
+    "json-loader": "0.5.x",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
