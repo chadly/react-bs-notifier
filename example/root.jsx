@@ -9,7 +9,7 @@ export default class NotifierGenerator extends Component {
 			position: "top-right",
 			alerts: [],
 			timeout: 0,
-			newMessage: "What an amazing world we live in"
+			newMessage: "Brunch XOXO ramps poke truffaut master cleanse. Chicharrones yr intelligentsia fam humblebrag, kale chips venmo whatever dreamcatcher."
 		};
 	}
 
@@ -18,7 +18,7 @@ export default class NotifierGenerator extends Component {
 		newData.unshift({
 			id: (new Date()).getTime(),
 			type: type,
-			headline: `Whoa! This is a${type === "info" ? "n" : ""} ${type} message.`,
+			headline: `Whoa, ${type}!`,
 			message: this.state.newMessage
 		});
 

@@ -2,7 +2,7 @@
 
 > A react component to show growl-like notifications using [bootstrap alerts](http://getbootstrap.com/components/#alerts).
 
-See a [live example](http://chadly.github.io/react-bs-notifier/).
+See a [live example](http://chadly.github.io/react-bs-notifier/). The component does not take a dependency on [font-awesome](http://fontawesome.io/), but it will add icons to the alerts if you have those styles included on the page.
 
 ## Install
 
