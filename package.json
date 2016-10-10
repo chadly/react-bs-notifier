@@ -51,7 +51,7 @@
     "babel-preset-react-hmre": "1.x",
     "babel-preset-stage-2": "6.x",
     "eslint": "3.x",
-    "eslint-config-civicsource": "1.x",
+    "eslint-config-civicsource": "2.x",
     "json-loader": "0.5.x",
     "react": "15.x",
     "react-addons-css-transition-group": "15.x",
