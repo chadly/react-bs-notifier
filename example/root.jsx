@@ -52,7 +52,7 @@ export default class NotifierGenerator extends Component {
 
 		return (
 			<div>
-				<Notifier position={this.state.position} alerts={this.state.alerts} timeout={this.state.timeout} />
+				<Notifier position={this.state.position} alerts={this.state.alerts} timeout={this.state.timeout} dismissTitle="Begone!" />
 				<div className="form-group">
 					<label htmlFor="new-message-control">Message</label>
 					<textarea
