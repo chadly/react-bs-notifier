@@ -32,6 +32,8 @@ const Alert = ({
 	message,
 	headline,
 	onDismiss,
+	dismissTitle = "Dismiss",
+	dismiss = <button type="button" className="close" title={dismissTitle} onClick={onDismiss}>&times;</button>,
 	sheet: { classes },
 	showIcon = true,
 	...props
@@ -41,7 +43,7 @@ const Alert = ({
 	return (
 		<div {...props}>
 			<div className={css} >
-				<button type="button" className="close" title="Dismiss" onClick={onDismiss}>&times;</button>
+				{dismiss}
 
 				{showIcon ? <Icon className={classes.icon} type={type} /> : null}
 				<div className={classes.msgContainer}>

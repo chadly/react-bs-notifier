@@ -79,6 +79,18 @@ function myDismissFunc(item) {
 
 Instead of dismissing the notification, the component will call the `myDismissFunc`. This is a useful way to call an action to integrate this component into a [redux application](http://redux.js.org/).
 
+#### `showIcon`
+
+Not defined by default, can be set to `false` to hide icons in alerts.
+
+#### `dismissTitle`
+
+The title text for the dismiss alert button.
+
+#### `dismiss`
+
+A component instance (JSX or `react.createElement`) which will be used for the dismiss button. Defaults to the "close" style button.
+
 ## Running Example Locally
 
 If you clone this repo, you can run the example app locally:
