@@ -1,7 +1,7 @@
 import React from "react";
 import { bootstrap } from "toetag";
 import Icon from "./icon";
-import useSheet from "./jss-preset";
+import useSheet from "react-jss-preset-civicsource";
 
 const styles = {
 	innerAlert: {

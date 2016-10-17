@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import Alert from "./alert";
 import styles from "./alerts.styles";
-import useSheet from "./jss-preset";
+import useSheet from "react-jss-preset-civicsource";
 
 const ENTER_TIMEOUT = 500;
 const EXIT_TIMEOUT = 300;
