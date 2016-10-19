@@ -1,6 +1,8 @@
-import React from "react";
+import React, { PropTypes as t } from "react";
+
 import { bootstrap } from "toetag";
 import Icon from "./icon";
+
 import useSheet from "react-jss-preset-civicsource";
 
 const styles = {
@@ -29,30 +31,40 @@ const styles = {
 
 const Alert = ({
 	type = "info",
-	message,
+	children,
 	headline,
 	onDismiss,
 	dismissTitle = "Dismiss",
-	dismiss = <button type="button" className="close" title={dismissTitle} onClick={onDismiss}>&times;</button>,
 	sheet: { classes },
-	showIcon = true,
-	...props
+	showIcon = true
 }) => {
-	const css = `alert alert-dismissible alert-${type} ${classes.innerAlert}`;
+	const isDismissable = !!onDismiss;
+	const css = `alert ${isDismissable ? "alert-dismissible" : ""} alert-${type} ${classes.innerAlert}`;
+	const dismiss = isDismissable ? <button type="button" className="close" title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
 
 	return (
-		<div {...props}>
-			<div className={css} >
+		<div> {/* this outer div is important so the alerts stack on top of one another... don't delete it */}
+			<div className={css}>
 				{dismiss}
 
 				{showIcon ? <Icon className={classes.icon} type={type} /> : null}
 				<div className={classes.msgContainer}>
 					{headline ? <h4 className={classes.headline}>{headline}</h4> : null}
-					<div className={classes.body}>{message}</div>
+					<div className={classes.body}>{children}</div>
 				</div>
 			</div>
 		</div>
 	);
 };
+
+export const PropTypes = {
+	type: t.oneOf(["info", "success", "warning", "danger"]),
+	headline: t.string,
+	onDismiss: t.func,
+	dismissTitle: t.string,
+	showIcon: t.bool
+};
+
+Alert.propTypes = PropTypes;
 
 export default useSheet(Alert, styles);

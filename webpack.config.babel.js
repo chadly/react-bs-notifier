@@ -8,10 +8,6 @@ export default {
 		path: "./example",
 		filename: "build.js"
 	},
-	node: {
-		__dirname: true,
-		__filename: true
-	},
 	devtool: "source-map",
 	resolve: {
 		extensions: ["", ".js", ".jsx", ".json"]

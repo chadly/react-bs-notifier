@@ -1,7 +1,6 @@
 import React from "react";
 
 const Icon = ({ type, className = "" }) => {
-
 	const faType = iconType(type);
 
 	if (faType) {
