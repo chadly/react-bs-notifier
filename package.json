@@ -16,10 +16,10 @@
   "author": "Chad Lee <npm@chadly.net>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --progress --inline --hot --content-base example/ --port 1341",
+    "start": "webpack-dev-server --progress --inline --hot --content-base docs/ --port 1341",
     "compile": "rimraf lib && babel src -d lib",
     "build": "webpack --progress --bail",
-    "lint": "eslint src --ext=js,jsx",
+    "lint": "eslint src docs --ext=js,jsx",
     "prepublish": "npm run lint && npm run compile"
   },
   "repository": {
@@ -45,12 +45,17 @@
     "babel-preset-react": "6.x",
     "babel-preset-react-hmre": "1.x",
     "babel-preset-stage-2": "6.x",
+    "component-playground": "1.x",
+    "css-loader": "0.25.x",
     "eslint": "3.x",
     "eslint-config-civicsource": "2.x",
     "json-loader": "0.5.x",
+    "raw-loader": "0.5.x",
     "react": "15.x",
     "react-dom": "15.x",
+    "react-remarkable": "1.x",
     "rimraf": "2.x",
+    "style-loader": "0.13.x",
     "webpack": "1.x",
     "webpack-dev-server": "1.x"
   }

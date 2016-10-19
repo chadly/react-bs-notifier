@@ -1,0 +1,1 @@
+Use the `AlertList` component to easily create alerts from an array. You can customize the component by setting the screen `position` and setting an auto-dismiss `timeout`. 

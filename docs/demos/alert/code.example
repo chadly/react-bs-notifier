@@ -1,0 +1,4 @@
+<Alert type="info" headline="Optional Headline">
+	This is a message that explains what happened in a little more detail.
+	You can include <a href="http://example.com/" className="alert-link" target="_blank">arbitrary markup</a> here.
+</Alert>

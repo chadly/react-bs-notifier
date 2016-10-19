@@ -1,0 +1,50 @@
+.playground {
+	max-width: 80%;
+	margin: 10px auto;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+ 	border-radius: 5px;
+ 	overflow: hidden;
+}
+
+.playgroundPreview {
+	padding: 2em;
+
+	background-color: #f2f2f2;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	overflow: auto;
+}
+
+.CodeMirror {
+	padding: 10px;
+}
+
+.playground.collapsableCode .playgroundCode {
+	height: 0;
+	overflow: hidden;
+}
+
+.playground.collapsableCode .playgroundCode.expandedCode {
+	height: auto;
+}
+
+.playgroundToggleCodeLink {
+	cursor: pointer;
+	font-family: monospace;
+	position: relative;
+	right: 0;
+	display: inline-block;
+	padding: 5px;
+}
+
+.playgroundToggleCodeLink:hover {
+	color: #aaa;
+}
+
+.playgroundError {
+	padding: 10px;
+	font-size: 12px;
+	color: white;
+	background: #F2777A;
+}

@@ -2,98 +2,55 @@
 
 > A react component to show growl-like notifications using [bootstrap alerts](http://getbootstrap.com/components/#alerts).
 
-See a [live example](http://chadly.github.io/react-bs-notifier/). The component does not take a dependency on [font-awesome](http://fontawesome.io/), but it will add icons to the alerts if you have those styles included on the page.
+See a [live demo](http://chadly.github.io/react-bs-notifier/).
 
-## Install
+## Usage
 
 ```
 npm install react-bs-notifier --save
 ```
 
-## Usage
+To show a list of different types of alerts in the top right corner of the page:
 
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
-import Notifier from "react-bs-notifier";
+import { AlertList } from "react-bs-notifier";
 
 const alerts = [{
+	id: 1,
 	type: "info",
-	id: "info123",
-	message: "This is an information message."
+	message: "Hello, world"
 }, {
-	type: "warning",
-	id: "warning456",
-	message: "This is a warning message!"
-}, {
-	type: "danger",
-	headline: "Whoa!",
-	message: "This is a danger message!"
-}, {
+	id: 2,
 	type: "success",
-	headline: "Good job!",
-	message: "This is a success message!"
-}, {
-	type: "success",
-	headline: "Good job!",
-	message: <span style={{color: 'pink'}}>This is a pink message for some reason!</span>
-}];
+	message: "Oh, hai"
+}]
 
-ReactDOM.render(<Notifier alerts={alerts} timeout={3000} />, document.getElementById("myApp"));
+ReactDOM.render((
+	<AlertList alerts={alerts} />
+), document.getElementById("myApp"));
 ```
 
-### Options
-
-#### `position`
-
-The corner in which alerts appear.
-One of `"top-right"` (default), `"top-left"`, `"bottom-right"`, `"bottom-left"`.
-
-#### `alerts`
-
-These are the alerts that the component should render. It expects an object with properties `type` & `message` with an optional `id` & `headline`. `id` isn't required but strongly encouraged as it will fix some janky issues with how the alerts animate in & out. If no `id` is specified, the component will fall back to using the array index of the alert as the component key.
-
-The supported values for `type` are one of _info_, _warning_, _danger_, or _success_.
-
-##### Note
-
-While `message` can accept arbitrary content, the height animation on the alerts is static and based on the assumption that the content won't exceed 20em vertically. You probably want to avoid putting anything that long in an alert which overlaps your UI anyway as opposed to linking to more detail, or in the case of a stack trace simply logging it to the console.
-
-#### `timeout`
-
-An optional timeout (in milliseconds) before alerts are automatically dismissed. If not specified, an alert will not be dismissed until the user dismisses it. There is no timeout by default.
-
-#### `onDismiss`
-
-You can pass an `onDismiss` callback to the component to override what happens when an item is dismissed. By default, if no `onDismiss` function is specified, the component will manage what alerts are dismissed as part of its internal state.
+Or to show a single inline-alert:
 
 ```js
-ReactDOM.render((
-	<Notifier alerts={alerts} onDismiss={myDismissFunc} timeout={1500} />
-), document.getElementById("myApp"));
+import React from "react";
+import ReactDOM from "react-dom";
+import { Alert } from "react-bs-notifier";
 
-function myDismissFunc(item) {
-	console.log(item);
-}
+ReactDOM.render((
+	<Alert type="danger" headline="Error!" message="Holy cow, man!" />
+), document.getElementById("myApp"));
 ```
 
-Instead of dismissing the notification, the component will call the `myDismissFunc`. This is a useful way to call an action to integrate this component into a [redux application](http://redux.js.org/).
+[Read the documentation](http://chadly.github.io/react-bs-notifier/) for more in-depth, interactive examples and live demos.
 
-#### `showIcon`
+## Contributing
 
-Not defined by default, can be set to `false` to hide icons in alerts.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-#### `dismissTitle`
-
-The title text for the dismiss alert button.
-
-#### `dismiss`
-
-A component instance (JSX or `react.createElement`) which will be used for the dismiss button. Defaults to the "close" style button.
-
-## Running Example Locally
-
-If you clone this repo, you can run the example app locally:
+If you have a new feature or change you'd like to submit, please make sure to also update the documentation. Once you clone this repo, you can run the docs & example app locally:
 
 ```
 npm install
@@ -102,6 +59,6 @@ npm start
 
 This will spin up a webpack dev server on port 1341. Open your browser to [localhost:1341](http://localhost:1341/) and any changes you make will build & refresh the page automatically.
 
-## Deploying Example to Github Pages
+### Deploying Docs to Github Pages
 
-Run `npm run build --production` and commit the resulting `example/index.html` & `example/build.js.*` files to the `gh-pages` branch.
+This is mostly a note for me so I don't forget. Run `npm run build --production` and commit the resulting `example/index.html` & `example/build.js.*` files to the `gh-pages` branch.

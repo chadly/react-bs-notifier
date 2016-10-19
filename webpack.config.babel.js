@@ -3,9 +3,9 @@ const NODE_ENV = process.env.NODE_ENV;
 const isDebugBuild = NODE_ENV != "production";
 
 export default {
-	entry: "./example/index.jsx",
+	entry: "./docs/index.jsx",
 	output: {
-		path: "./example",
+		path: "./docs",
 		filename: "build.js"
 	},
 	devtool: "source-map",
@@ -20,6 +20,9 @@ export default {
 			query: isDebugBuild ? {
 				presets: ["react-hmre"]
 			} : undefined
+		}, {
+			test: /\.css$/,
+			loaders: ["style", "css"]
 		}, {
 			test: /\.json$/,
 			loader: "json"

@@ -1,7 +1,4 @@
-import React, { Component } from "react";
-import Notifier from "../src/alerts";
-
-export default class NotifierGenerator extends Component {
+class NotifierGenerator extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -9,20 +6,35 @@ export default class NotifierGenerator extends Component {
 			position: "top-right",
 			alerts: [],
 			timeout: 0,
-			newMessage: "Brunch XOXO ramps poke truffaut master cleanse. Chicharrones yr intelligentsia fam humblebrag, kale chips venmo whatever dreamcatcher."
+			newMessage: "This is a test of the Emergency Broadcast System. This is only a test."
 		};
 	}
 
 	generate(type) {
-		let newData = this.state.alerts.slice();
-		newData.unshift({
+		const newAlert ={
 			id: (new Date()).getTime(),
 			type: type,
 			headline: `Whoa, ${type}!`,
 			message: this.state.newMessage
-		});
+		};
 
-		this.setState({ alerts: newData });
+		this.setState({
+			alerts: [...this.state.alerts, newAlert]
+		});
+	}
+
+	onAlertDismissed(alert) {
+		const alerts = this.state.alerts;
+
+		// find the index of the alert that was dismissed
+		const idx = alerts.indexOf(alert);
+
+		if (idx >= 0) {
+			this.setState({
+				// remove the alert from the array
+				alerts: [...alerts.slice(0, idx), ...alerts.slice(idx + 1)]
+			});
+		}
 	}
 
 	clearAlerts() {
@@ -47,12 +59,21 @@ export default class NotifierGenerator extends Component {
 
 	render() {
 		const clearAllButton = this.state.alerts.length ? (
-			<button className="btn btn-link" onClick={this.clearAlerts.bind(this)}>Clear all alerts</button>
+			<button
+				className="btn btn-link"
+				onClick={this.clearAlerts.bind(this)}>Clear all alerts</button>
 		) : null;
 
 		return (
 			<div>
-				<Notifier position={this.state.position} alerts={this.state.alerts} timeout={this.state.timeout} dismissTitle="Begone!" />
+				<AlertList
+					position={this.state.position}
+					alerts={this.state.alerts}
+					timeout={this.state.timeout}
+					dismissTitle="Begone!"
+					onDismiss={this.onAlertDismissed.bind(this)}
+				/>
+
 				<div className="form-group">
 					<label htmlFor="new-message-control">Message</label>
 					<textarea
@@ -63,15 +84,24 @@ export default class NotifierGenerator extends Component {
 						onChange={this.onNewMessageChange.bind(this)}
 					/>
 				</div>
+
 				<div className="form-group">
 					<div className="form-inline">
-						<label htmlFor="timeout-control" className="control-label">Dismiss after</label>
+						<label htmlFor="timeout-control" className="control-label">Auto-dismiss after</label>
 						{" "}
 						<div className="input-group">
-							<input id="timeout-control" className="form-control" type="number" value={this.state.timeout / 1000} onChange={this.onTimeoutChange.bind(this)} />
+							<input
+								id="timeout-control"
+								className="form-control"
+								type="number"
+								value={this.state.timeout / 1000}
+								onChange={this.onTimeoutChange.bind(this)}
+							/>
 							<span className="input-group-addon">seconds</span>
 						</div>
+
 						{" "}
+
 						<label htmlFor="position-control">Position</label>
 						{" "}
 						<select onChange={this.onPositionChange.bind(this)} className="form-control" id="position-control">
@@ -81,12 +111,14 @@ export default class NotifierGenerator extends Component {
 						</select>
 					</div>
 				</div>
+
 				<div className="form-group text-right">
 					{clearAllButton}
 					<div className="btn-group">
 						{["info", "success", "warning", "danger"].map(type => (
 							<button
-								key={type} type="button"
+								key={type}
+								type="button"
 								className={`btn btn-${type}`}
 								onClick={this.generate.bind(this, type)}
 							>
@@ -99,3 +131,5 @@ export default class NotifierGenerator extends Component {
 		);
 	}
 }
+
+ReactDOM.render(<NotifierGenerator />, mountNode);

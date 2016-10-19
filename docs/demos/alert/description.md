@@ -1,0 +1,1 @@
+You can use the `Alert` component to render an inline-alert. Since we don't pass an `onDismiss` function here, the alert is undismissable.
