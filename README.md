@@ -2,7 +2,7 @@
 
 > A react component to show growl-like notifications using [bootstrap alerts](http://getbootstrap.com/components/#alerts).
 
-See a [live demo](http://chadly.github.io/react-bs-notifier/).
+See a [live demo](https://chadly.github.io/react-bs-notifier/).
 
 ## Usage
 
@@ -44,7 +44,7 @@ ReactDOM.render((
 ), document.getElementById("myApp"));
 ```
 
-[Read the documentation](http://chadly.github.io/react-bs-notifier/) for more in-depth, interactive examples and live demos.
+[Read the documentation](https://chadly.github.io/react-bs-notifier/) for more in-depth, interactive examples and live demos.
 
 ## Contributing
 
