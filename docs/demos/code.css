@@ -20,6 +20,11 @@
 	padding: 10px;
 }
 
+.CodeMirror, .CodeMirror-scroll {
+	height: auto;
+	max-height: 80vh;
+}
+
 .playground.collapsableCode .playgroundCode {
 	height: 0;
 	overflow: hidden;
