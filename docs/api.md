@@ -8,6 +8,8 @@ The `AlertList` component will render an array of `alerts` into one of the corne
 
 These are the alerts that the component should render. It expects an object with fields `id` & `message` with an optional `type` & `headline`.
 
+Hint: if you don't have anything good to make an `id` out of, try using: `new Date()).getTime()`
+
 If no `headline` is specified, only the message will show up in the alert.
 
 The supported values for `type` are one of _info_, _warning_, _danger_, or _success_. If no `type` is specified, it is assumed to be _info_.
