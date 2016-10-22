@@ -1,7 +1,7 @@
 import React, { PropTypes as t } from "react";
 
 import Container, { PropTypes as ContainerPropTypes } from "./container";
-import Alert, { PropTypes as AlertPropTypes } from "./alert";
+import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";
 
 const AlertList = ({
 	position,
