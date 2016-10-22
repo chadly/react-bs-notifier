@@ -1,1 +1,1 @@
-You can use the `AlertContainer` in combination with individual `Alert` components to approximate the functionality of the `AlertList`. If you'd rather not have a central list of alerts and you want to control which alerts appear inline, this is a nice option. 
+You can use the `AlertContainer` in combination with individual `Alert` components to recreate the functionality of the `AlertList`. If you'd rather not have a central list of alerts and you want to control which alerts appear inline, this is a nice option. 

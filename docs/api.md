@@ -26,13 +26,13 @@ The corner in which alerts appear. One of _top-right_ (default), _top-left_, _bo
 
 #### `timeout`
 
-An optional timeout (in milliseconds) before alerts are automatically dismissed. If not specified, an alert will not be dismissed until the user dismisses it. There is no timeout by default.
+An optional timeout (in milliseconds) before alerts are automatically dismissed. If not specified, an alert will not be dismissed until the user dismisses it. If a timeout is specified but no `onDismiss` function, it is equivalent to specifying no timeout. There is no timeout by default.
 
 ---
 
 #### `onDismiss`
 
-When a user clicks the &times; icon to dismiss the alert, this function will be called. The function is optional. If no `onDismiss` function is specified, the component will not render a close button for the alert and it will be undismissable by the user.
+When a user clicks the &times; icon to dismiss the alert, this function will be called. The function is optional. If no `onDismiss` function is specified, the component will not render a close button for the alert and it will be undismissable by the user. The dismiss function will receive the `alert` that was dismissed as its sole argument.
 
 ---
 
@@ -66,7 +66,7 @@ An optional larger headline text to show in the alert. If no `headline` is speci
 
 #### `onDismiss`
 
-When a user clicks the &times; icon to dismiss the alert, this function will be called. The function is optional. If no `onDismiss` function is specified, the component will not render a close button for the alert and it will be undismissable by the user.
+When a user clicks the &times; icon to dismiss the alert, this function will be called. The function is optional. If no `onDismiss` function is specified, the component will not render a close button for the alert and it will be undismissable by the user. The `onDismiss` function is called with no arguments.
 
 ---
 
@@ -79,6 +79,12 @@ A boolean value which indicates whether or not the alert type icon should be ren
 #### `dismissTitle`
 
 The title text for the dismiss-alert button. By default, it is _Dismiss_.
+
+---
+
+#### `timeout`
+
+An optional timeout (in milliseconds) before this alert will be automatically dismissed. If not specified, an alert will not be dismissed until the user dismisses it. If a timeout is specified but no `onDismiss` function, it is equivalent to specifying no timeout. There is no timeout by default.
 
 ---
 
