@@ -46,6 +46,31 @@ ReactDOM.render((
 ), document.getElementById("myApp"));
 ```
 
+Or show alerts without creating an array (equivalent to first example):
+
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import { Alert, AlertContainer } from "react-bs-notifier";
+
+const alerts = [{
+	id: 1,
+	type: "info",
+	message: "Hello, world"
+}, {
+	id: 2,
+	type: "success",
+	message: "Oh, hai"
+}]
+
+ReactDOM.render((
+	<AlertContainer>
+		<Alert type="info">Hello, world</Alert>
+		<Alert type="success">Oh, hai</Alert>
+	</AlertContainer>
+), document.getElementById("myApp"));
+```
+
 [Read the documentation](https://chadly.github.io/react-bs-notifier/) for more in-depth, interactive examples and live demos.
 
 ## Contributing
