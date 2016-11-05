@@ -53,16 +53,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Alert, AlertContainer } from "react-bs-notifier";
 
-const alerts = [{
-	id: 1,
-	type: "info",
-	message: "Hello, world"
-}, {
-	id: 2,
-	type: "success",
-	message: "Oh, hai"
-}]
-
 ReactDOM.render((
 	<AlertContainer>
 		<Alert type="info">Hello, world</Alert>
