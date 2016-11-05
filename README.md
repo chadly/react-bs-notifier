@@ -40,7 +40,9 @@ import ReactDOM from "react-dom";
 import { Alert } from "react-bs-notifier";
 
 ReactDOM.render((
-	<Alert type="danger" headline="Error!" message="Holy cow, man!" />
+	<Alert type="danger" headline="Error!">
+		Holy cow, man!
+	</Alert>
 ), document.getElementById("myApp"));
 ```
 
