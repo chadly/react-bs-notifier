@@ -30,7 +30,7 @@ AlertList.propTypes = {
 		id: t.any.isRequired,
 		type: AlertPropTypes.type,
 		headline: AlertPropTypes.headline,
-		message: t.object.isRequired
+		message: t.oneOfType([t.string, t.node, t.object]).isRequired
 	})).isRequired,
 	onDismiss: t.func,
 	timeout: AlertPropTypes.timeout
