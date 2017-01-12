@@ -3,7 +3,7 @@ import React from "react";
 import { bootstrap } from "toetag";
 import Icon from "./icon";
 
-import useSheet from "react-jss-preset-civicsource";
+import useSheet from "react-jss";
 
 const styles = {
 	innerAlert: {
@@ -57,4 +57,4 @@ const Alert = ({
 	);
 };
 
-export default useSheet(Alert, styles);
+export default useSheet(styles)(Alert);

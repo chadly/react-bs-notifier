@@ -2,7 +2,7 @@ import React, { PropTypes as t } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { bootstrap } from "toetag";
-import useSheet from "react-jss-preset-civicsource";
+import useSheet from "react-jss";
 
 const MAGICAL_MAX_HEIGHT = "20em";
 export const ENTER_TIMEOUT = 500;
@@ -77,4 +77,4 @@ export const PropTypes = {
 
 AlertContainer.propTypes = PropTypes;
 
-export default useSheet(AlertContainer, styles);
+export default useSheet(styles)(AlertContainer);
