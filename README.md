@@ -67,7 +67,7 @@ ReactDOM.render((
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-If you have a new feature or change you'd like to submit, please make sure to also update the documentation. Once you clone this repo, you can run the docs & example app locally:
+If you have a new feature or change you'd like to submit, please submit an issue first to talk about the change you want to make. When you are finished making your change, please make sure to also update the documentation. Once you clone this repo, you can run the docs & example app locally:
 
 ```
 npm install
@@ -78,4 +78,4 @@ This will spin up a webpack dev server on port 1341. Open your browser to [local
 
 ### Deploying Docs to Github Pages
 
-This is mostly a note for me so I don't forget. Run `npm run build --production` and commit the resulting `example/index.html` & `example/build.js.*` files to the `gh-pages` branch.
+This is mostly a note for me so I don't forget. Run `npm run build --production` and commit the resulting `docs/index.html` & `docs/build.js.*` files to the `gh-pages` branch.
