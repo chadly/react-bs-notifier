@@ -6,10 +6,29 @@ import Icon from "./icon";
 import useSheet from "react-jss";
 
 const styles = {
-	innerAlert: {
+	alert: {
+		composes: "alert",
 		marginBottom: bootstrap.paddingBaseVertical,
 		display: "inline-block",
 		textAlign: "left"
+	},
+	info: {
+		composes: "alert-info"
+	},
+	success: {
+		composes: "alert-success"
+	},
+	warning: {
+		composes: "alert-warning",
+	},
+	danger: {
+		composes: "alert-danger"
+	},
+	dismissable: {
+		composes: "alert-dismissable"
+	},
+	close: {
+		composes: "close"
 	},
 	msgContainer: {
 		display: "inline-block"
@@ -30,6 +49,7 @@ const styles = {
 };
 
 const Alert = ({
+	containerComponent: Container = "div",
 	type = "info",
 	children,
 	headline,
@@ -39,11 +59,11 @@ const Alert = ({
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
-	const css = `alert ${isDismissable ? "alert-dismissible" : ""} alert-${type} ${classes.innerAlert}`;
-	const dismiss = isDismissable ? <button type="button" className="close" title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
+	const css = `${isDismissable ? classes.dismissable : ""} ${classes[type]} ${classes.alert}`;
+	const dismiss = isDismissable ? <button type="button" className={classes.close} title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
 
 	return (
-		<div> {/* this outer div is important so the alerts stack on top of one another... don't delete it */}
+		<Container> {/* this classless container is used by the transition group above... don't delete it */}
 			<div className={css}>
 				{dismiss}
 
@@ -53,7 +73,7 @@ const Alert = ({
 					<div className={classes.body}>{children}</div>
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 };
 
