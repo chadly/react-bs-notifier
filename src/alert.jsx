@@ -1,33 +1,9 @@
 import React from "react";
 
-import { bootstrap } from "toetag";
 import Icon from "./icon";
 
 import useSheet from "react-jss";
-
-const styles = {
-	innerAlert: {
-		marginBottom: bootstrap.paddingBaseVertical,
-		display: "inline-block",
-		textAlign: "left"
-	},
-	msgContainer: {
-		display: "inline-block"
-	},
-	icon: {
-		verticalAlign: "top",
-		fontSize: bootstrap.fontSizeH4,
-		paddingRight: bootstrap.paddingLargeHorizontal,
-		opacity: 0.2
-	},
-	headline: {
-		margin: 0,
-		marginBottom: bootstrap.paddingBaseVertical
-	},
-	body: {
-		maxWidth: "40em"
-	}
-};
+import styles from "./alert.style";
 
 const Alert = ({
 	type = "info",
@@ -39,11 +15,11 @@ const Alert = ({
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
-	const css = `alert ${isDismissable ? "alert-dismissible" : ""} alert-${type} ${classes.innerAlert}`;
-	const dismiss = isDismissable ? <button type="button" className="close" title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
+	const css = `${isDismissable ? classes.dismissable : ""} ${classes[type]} ${classes.alert}`;
+	const dismiss = isDismissable ? <button type="button" className={classes.close} title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
 
 	return (
-		<div> {/* this outer div is important so the alerts stack on top of one another... don't delete it */}
+		<div> {/* this classless container div is used by the transition group above... don't delete it */}
 			<div className={css}>
 				{dismiss}
 

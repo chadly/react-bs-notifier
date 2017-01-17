@@ -1,0 +1,58 @@
+const { Component } = React;
+
+const styles = {
+	alert: {
+		composes: "alert",
+		marginBottom: 6,
+		display: "inline-block",
+		textAlign: "left"
+	},
+	info: {
+		composes: "alert-info"
+	},
+	success: {
+        color: "#efd8f0",
+        background: "#8f2ba1",
+        borderColor: "#80237f",
+        borderWidth: 15,
+        borderRadius: 60
+	},
+	warning: {
+		composes: "alert-warning",
+	},
+	danger: {
+		composes: "alert-danger"
+	},
+	dismissable: {
+		composes: "alert-dismissable"
+	},
+	close: {
+		composes: "close"
+	},
+	msgContainer: {
+		display: "inline-block"
+	},
+	icon: {
+		verticalAlign: "top",
+		fontSize: 18,
+		paddingRight: 15,
+		opacity: 0.2
+	},
+	headline: {
+		margin: 0,
+		marginBottom: 6
+	},
+	body: {
+		maxWidth: "40em"
+	}
+};
+
+const ThemedAlert = useSheet(styles)(Alert);
+
+const themedExample = (
+    <ThemedAlert type="success" headline="What have I done">
+        This terrible power should have never been unleashed
+    </ThemedAlert>
+);
+
+ReactDOM.render(themedExample, mountNode);

@@ -1,6 +1,6 @@
 {
   "name": "react-bs-notifier",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "A react component to show growl-like notifications using bootstrap alerts",
   "keywords": [
     "react-component",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "react-addons-css-transition-group": ">=0.14 <16",
-    "react-jss": "5.x",
+    "react-jss": ">= 5.2 <6",
     "toetag": "3.x"
   },
   "peerDependencies": {
