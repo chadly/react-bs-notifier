@@ -6,7 +6,6 @@ import useSheet from "react-jss";
 import styles from "./alert.style";
 
 const Alert = ({
-	containerComponent: Container = "div",
 	type = "info",
 	children,
 	headline,
@@ -20,7 +19,7 @@ const Alert = ({
 	const dismiss = isDismissable ? <button type="button" className={classes.close} title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
 
 	return (
-		<Container> {/* this classless container is used by the transition group above... don't delete it */}
+		<div> {/* this classless container div is used by the transition group above... don't delete it */}
 			<div className={css}>
 				{dismiss}
 
@@ -30,7 +29,7 @@ const Alert = ({
 					<div className={classes.body}>{children}</div>
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 };
 
