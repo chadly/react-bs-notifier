@@ -3,6 +3,7 @@ import React from "react";
 import AlertListDemo from "./alert-list";
 import AlertDemo from "./alert";
 import AlertContainerDemo from "./alert-container";
+import ThemedAlertDemo from "./themed";
 
 const Demos = () => (
 	<div>
@@ -15,6 +16,9 @@ const Demos = () => (
 		<hr />
 
 		<AlertContainerDemo />
+		<hr />
+
+		<ThemedAlertDemo />
 		<hr />
 	</div>
 );
