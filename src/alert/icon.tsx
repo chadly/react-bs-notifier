@@ -1,6 +1,7 @@
 import React from "react";
+import { AlertType } from "../types";
 
-const Icon = ({ type, className = "" }) => {
+const Icon = ({ type, className = "" }: IconPropTypes) => {
 	const faType = iconType(type);
 
 	if (faType) {
@@ -10,7 +11,7 @@ const Icon = ({ type, className = "" }) => {
 	return null;
 };
 
-function iconType(type) {
+function iconType(type: AlertType) {
 	switch (type) {
 		case "warning":
 			return "fa fa-warning";
@@ -24,6 +25,11 @@ function iconType(type) {
 		case "danger":
 			return "fa fa-exclamation-circle";
 	}
+}
+
+interface IconPropTypes {
+	type: AlertType,
+	className?: string
 }
 
 export default Icon;

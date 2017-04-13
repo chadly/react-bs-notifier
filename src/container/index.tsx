@@ -23,7 +23,7 @@ const AlertContainer = ({
 
 interface PropTypes {
 	position: AlertPosition,
-	children: any,
+	children: JSX.Element,
 	sheet: any
 };
 

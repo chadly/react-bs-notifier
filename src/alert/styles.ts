@@ -1,6 +1,7 @@
 import { bootstrap } from "toetag";
+import useSheet from "react-jss";
 
-export default {
+const styles = {
 	alert: {
 		composes: "alert",
 		marginBottom: bootstrap.paddingBaseVertical,
@@ -42,3 +43,5 @@ export default {
 		maxWidth: "40em"
 	}
 };
+
+export default useSheet(styles);

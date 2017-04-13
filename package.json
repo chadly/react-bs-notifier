@@ -13,13 +13,14 @@
     "alerts"
   ],
   "main": "lib/index.js",
+  "module": "es/index.js",
   "author": "Chad Lee <npm@chadly.net>",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot --content-base docs/ --port 1341",
-    "compile": "rimraf es && tsc",
+    "compile": "rimraf es lib && tsc && tsc -p tsconfig.lib.json",
     "build": "webpack --progress --bail",
-    "lint": "eslint src docs --ext=js,jsx"
+    "lint": "eslint src docs --ext=js,jsx,ts,tsx"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,6 @@
     "url": "https://github.com/chadly/react-bs-notifier/issues"
   },
   "dependencies": {
-    "@types/react": "^15.0.21",
-    "@types/react-dom": "^0.14.23",
     "react-addons-css-transition-group": ">=0.14 <16",
     "react-jss": ">= 5.2 <6",
     "toetag": "3.x"
@@ -39,10 +38,12 @@
     "react": ">=0.14 <16"
   },
   "devDependencies": {
+    "@types/react": "^15.0.21",
+    "@types/react-dom": "^0.14.23",
     "component-playground": "1.x",
     "css-loader": "0.25.x",
     "eslint": "3.x",
-    "eslint-config-civicsource": "2.x",
+    "eslint-config-civicsource": "4.x",
     "json-loader": "0.5.x",
     "raw-loader": "0.5.x",
     "react": "15.x",

@@ -1,9 +1,7 @@
 import React from "react";
-
 import Icon from "./icon";
-
-import useSheet from "react-jss";
-import styles from "./alert.style";
+import styles from "./styles";
+import { AlertType, DismissFunc } from "../types";
 
 const Alert = ({
 	type = "info",
@@ -13,7 +11,7 @@ const Alert = ({
 	dismissTitle = "Dismiss",
 	sheet: { classes },
 	showIcon = true
-}) => {
+}: PropTypes & InternalPropTypes) => {
 	const isDismissable = !!onDismiss;
 	const css = `${isDismissable ? classes.dismissable : ""} ${classes[type]} ${classes.alert}`;
 	const dismiss = isDismissable ? <button type="button" className={classes.close} title={dismissTitle} onClick={onDismiss}>&times;</button> : null;
@@ -33,4 +31,17 @@ const Alert = ({
 	);
 };
 
-export default useSheet(styles)(Alert);
+interface InternalPropTypes {
+	children: any,
+	sheet: { classes: any }
+}
+
+export interface PropTypes {
+	type?: AlertType,
+	headline: string,
+	onDismiss?: DismissFunc,
+	dismissTitle?: string,
+	showIcon?: boolean
+};
+
+export default styles(Alert);

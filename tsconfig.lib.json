@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"jsx": "react",
+		"outDir": "lib",
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [
+		"src/**/*"
+	]
+}

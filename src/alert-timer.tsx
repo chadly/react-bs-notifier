@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Alert from "./alert";
-import { AlertType }from "./types";
+import Alert, { PropTypes as AlertPropTypes } from "./alert";
+import { AlertType, DismissFunc }from "./types";
 
 import { ENTER_TIMEOUT, EXIT_TIMEOUT } from "./container";
 
@@ -69,18 +69,11 @@ export default class AlertTimer extends Component<PropTypes, any> {
 	}
 
 	render() {
-		const onDismiss = this.props.onDismiss ? this.dismissAlert.bind(this, this.props.onDismiss) : null;
+		const onDismiss: DismissFunc = this.props.onDismiss ? this.dismissAlert.bind(this, this.props.onDismiss) : null;
 		return <Alert {...this.props} onDismiss={onDismiss} />;
 	}
 }
 
-type DismissFunc = () => void;
-
-interface PropTypes {
-	type: AlertType,
-	headline: string,
-	onDismiss?: DismissFunc,
-	dismissTitle: string,
-	showIcon: boolean,
-	timeout: number
+interface PropTypes extends AlertPropTypes {
+	timeout?: number
 };

@@ -1,4 +1,4 @@
-import React, { PropTypes as t } from "react";
+import React from "react";
 
 import Container from "./container";
 import Alert from "./alert-timer";
@@ -14,10 +14,10 @@ const AlertList = ({
 		{alerts.map(item => {
 			const dismiss = onDismiss ? () => onDismiss(item) : null;
 
-			const { message, ...alertProps } = item;
+			const { message, id, ...alertProps } = item;
 
 			return (
-				<Alert key={item.id} {...props} {...alertProps} onDismiss={dismiss}>
+				<Alert key={id} {...props} {...alertProps} onDismiss={dismiss}>
 					{message}
 				</Alert>
 			);
@@ -28,8 +28,7 @@ const AlertList = ({
 interface PropTypes {
 	position: AlertPosition,
 	alerts: AlertType[],
-	onDismiss?: (alert: AlertType) => void,
-	timeout: number
+	onDismiss?: (alert: AlertType) => void
 }
 
 export default AlertList;
