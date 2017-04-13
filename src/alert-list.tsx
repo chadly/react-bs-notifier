@@ -1,6 +1,6 @@
 import React, { PropTypes as t } from "react";
 
-import Container, { PropTypes as ContainerPropTypes } from "./container";
+import Container, { PropTypes } from "./container";
 import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";
 
 const AlertList = ({
@@ -23,6 +23,15 @@ const AlertList = ({
 		})}
 	</Container>
 );
+
+interface PropTypes {
+	alerts: 
+}
+
+interface Alert {
+	id: any,
+	type
+}
 
 AlertList.propTypes = {
 	...ContainerPropTypes,

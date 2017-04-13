@@ -17,10 +17,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot --content-base docs/ --port 1341",
-    "compile": "rimraf lib && babel src -d lib",
+    "compile": "rimraf es && tsc",
     "build": "webpack --progress --bail",
-    "lint": "eslint src docs --ext=js,jsx",
-    "prepublish": "npm run lint && npm run compile"
+    "lint": "eslint src docs --ext=js,jsx"
   },
   "repository": {
     "type": "git",
@@ -38,13 +37,6 @@
     "react": ">=0.14 <16"
   },
   "devDependencies": {
-    "babel-cli": "6.x",
-    "babel-loader": "6.x",
-    "babel-plugin-transform-export-extensions": "6.x",
-    "babel-preset-es2015": "6.x",
-    "babel-preset-react": "6.x",
-    "babel-preset-react-hmre": "1.x",
-    "babel-preset-stage-2": "6.x",
     "component-playground": "1.x",
     "css-loader": "0.25.x",
     "eslint": "3.x",
@@ -56,6 +48,7 @@
     "react-remarkable": "1.x",
     "rimraf": "2.x",
     "style-loader": "0.13.x",
+    "typescript": "^2.2.2",
     "webpack": "1.x",
     "webpack-dev-server": "1.x"
   }
