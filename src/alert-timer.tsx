@@ -1,10 +1,14 @@
-import React, { Component, PropTypes as t } from "react";
+import React, { Component } from "react";
 
 import Alert from "./alert";
+import { AlertType }from "./types";
 
 import { ENTER_TIMEOUT, EXIT_TIMEOUT } from "./container";
 
-export default class AlertTimer extends Component {
+export default class AlertTimer extends Component<PropTypes, any> {
+	timer: number;
+	timerTimeout: number;
+
 	constructor(props) {
 		super(props);
 	}
@@ -16,7 +20,7 @@ export default class AlertTimer extends Component {
 		);
 	}
 
-	componentWillReceiveProps({ timeout, onDismiss }) {
+	componentWillReceiveProps({ timeout, onDismiss } : PropTypes) {
 		this.setupTimer(
 			timeout,
 			onDismiss
@@ -28,7 +32,7 @@ export default class AlertTimer extends Component {
 		this.setupTimer(/* passing nothing will clear the timer */);
 	}
 
-	setupTimer(timeout, onDismiss) {
+	setupTimer(timeout?: number, onDismiss?: DismissFunc) {
 		if (!timeout || !onDismiss) {
 			// clear any timer we currently have
 			clearTimeout(this.timer);
@@ -52,7 +56,7 @@ export default class AlertTimer extends Component {
 		}
 	}
 
-	dismissAlert(onDismiss) {
+	dismissAlert(onDismiss: DismissFunc) {
 		// clear the timer if it hasn't fired yet
 		clearTimeout(this.timer);
 
@@ -70,13 +74,13 @@ export default class AlertTimer extends Component {
 	}
 }
 
-export const PropTypes = {
-	type: t.oneOf(["info", "success", "warning", "danger"]),
-	headline: t.string,
-	onDismiss: t.func,
-	dismissTitle: t.string,
-	showIcon: t.bool,
-	timeout: t.number
-};
+type DismissFunc = () => void;
 
-AlertTimer.propTypes = PropTypes;
+interface PropTypes {
+	type: AlertType,
+	headline: string,
+	onDismiss?: DismissFunc,
+	dismissTitle: string,
+	showIcon: boolean,
+	timeout: number
+};
