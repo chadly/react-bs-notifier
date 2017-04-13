@@ -14,9 +14,9 @@ export default {
 	},
 	module: {
 		loaders: [{
-			test: /\.jsx?$/,
+			test: /\.tsx?$/,
 			exclude: /node_modules/,
-			loader: "babel",
+			loader: "awesome-typescript",
 			query: isDebugBuild ? {
 				presets: ["react-hmre"]
 			} : undefined
