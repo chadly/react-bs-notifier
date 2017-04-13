@@ -1,8 +1,8 @@
 import React from "react";
 import CodeExample from "../code-example";
 
-import ex from "raw!./code.example";
-import desc from "raw!./description.md";
+import ex from "./code.example";
+import desc from "./description.md";
 
 const AlertListDemo = props => <CodeExample title={<code>AlertList</code>} codeText={ex} description={desc} {...props} />;
 

@@ -1,4 +1,4 @@
-import React, { PropTypes as t } from "react";
+import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import styles from "./styles";
@@ -23,8 +23,8 @@ const AlertContainer = ({
 
 interface PropTypes {
 	position: AlertPosition,
-	children: JSX.Element,
+	children: JSX.Element, // eslint-disable-line no-undef
 	sheet: any
-};
+}
 
 export default styles(AlertContainer);

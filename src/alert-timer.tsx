@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
 import Alert, { PropTypes as AlertPropTypes } from "./alert";
-import { AlertType, DismissFunc }from "./types";
+import { DismissFunc } from "./types";
 
 import { ENTER_TIMEOUT, EXIT_TIMEOUT } from "./container";
 
 export default class AlertTimer extends Component<PropTypes, any> {
-	timer: number;
-	timerTimeout: number;
-
 	constructor(props) {
 		super(props);
 	}
@@ -31,6 +28,9 @@ export default class AlertTimer extends Component<PropTypes, any> {
 		// need to clean up after ourselves
 		this.setupTimer(/* passing nothing will clear the timer */);
 	}
+
+	timer: number;
+	timerTimeout: number;
 
 	setupTimer(timeout?: number, onDismiss?: DismissFunc) {
 		if (!timeout || !onDismiss) {
@@ -76,4 +76,4 @@ export default class AlertTimer extends Component<PropTypes, any> {
 
 interface PropTypes extends AlertPropTypes {
 	timeout?: number
-};
+}

@@ -42,6 +42,6 @@ export interface PropTypes {
 	onDismiss?: DismissFunc,
 	dismissTitle?: string,
 	showIcon?: boolean
-};
+}
 
 export default styles(Alert);

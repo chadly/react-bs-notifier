@@ -6,5 +6,5 @@ export interface Alert {
 	id: any,
 	type: AlertType,
 	headline: string,
-	message: string | JSX.Element
+	message: string | JSX.Element // eslint-disable-line no-undef
 }

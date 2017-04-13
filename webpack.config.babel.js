@@ -10,7 +10,7 @@ export default {
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: ["", ".js", ".jsx", ".json"]
+		extensions: ["", ".js", ".jsx", ".json", ".ts", ".tsx"]
 	},
 	module: {
 		loaders: [{
@@ -26,6 +26,9 @@ export default {
 		}, {
 			test: /\.json$/,
 			loader: "json"
+		}, {
+			test: /\.(md|example)$/,
+			loader: "raw"
 		}]
 	}
 };
