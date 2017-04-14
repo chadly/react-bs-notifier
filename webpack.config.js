@@ -10,7 +10,7 @@ module.exports = {
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: ["", ".js", ".jsx", ".json", ".ts", ".tsx"]
+		extensions: ["", ".js", ".ts", ".tsx"]
 	},
 	module: {
 		loaders: [{
@@ -23,9 +23,6 @@ module.exports = {
 		}, {
 			test: /\.css$/,
 			loaders: ["style", "css"]
-		}, {
-			test: /\.json$/,
-			loader: "json"
 		}, {
 			test: /\.(md|example)$/,
 			loader: "raw"
