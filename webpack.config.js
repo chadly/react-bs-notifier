@@ -2,8 +2,8 @@
 const NODE_ENV = process.env.NODE_ENV;
 const isDebugBuild = NODE_ENV != "production";
 
-export default {
-	entry: "./docs/index.jsx",
+module.exports = {
+	entry: "./docs/index.tsx",
 	output: {
 		path: "./docs",
 		filename: "build.js"
@@ -14,7 +14,7 @@ export default {
 	},
 	module: {
 		loaders: [{
-			test: /\.tsx?$/,
+			test: /\.[jt]sx?$/,
 			exclude: /node_modules/,
 			loader: "awesome-typescript",
 			query: isDebugBuild ? {
