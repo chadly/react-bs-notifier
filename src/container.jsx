@@ -21,7 +21,7 @@ const styles = {
 	"top-right": {
 		top: 0,
 		right: 0,
-		textAlign: "right",
+		textAlign: "right"
 	},
 	"top-left": {
 		top: 0,
@@ -62,10 +62,18 @@ const styles = {
 	}
 };
 
-const AlertContainer = ({ position = "top-right", children, sheet: { classes } }) => {
+const AlertContainer = ({
+	position = "top-right",
+	children,
+	sheet: { classes }
+}) => {
 	return (
 		<div className={`${classes.container} ${classes[position]}`}>
-			<ReactCSSTransitionGroup transitionName={classes} transitionEnterTimeout={ENTER_TIMEOUT} transitionLeaveTimeout={EXIT_TIMEOUT}>
+			<ReactCSSTransitionGroup
+				transitionName={classes}
+				transitionEnterTimeout={ENTER_TIMEOUT}
+				transitionLeaveTimeout={EXIT_TIMEOUT}
+			>
 				{children}
 			</ReactCSSTransitionGroup>
 		</div>

@@ -14,7 +14,7 @@ export default {
 		composes: "alert-success"
 	},
 	warning: {
-		composes: "alert-warning",
+		composes: "alert-warning"
 	},
 	danger: {
 		composes: "alert-danger"

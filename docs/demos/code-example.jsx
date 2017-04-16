@@ -10,7 +10,14 @@ import "./code.css";
 const CodeExample = ({ title, description, ...props }) => (
 	<div>
 		<h3>{title}</h3>
-		<Playground scope={{ React, ReactDOM, Alert, AlertList, AlertContainer, useSheet }} noRender={false} theme="solarized dark" collapsableCode initiallyExpanded={false} {...props} />
+		<Playground
+			scope={{ React, ReactDOM, Alert, AlertList, AlertContainer, useSheet }}
+			noRender={false}
+			theme="solarized dark"
+			collapsableCode
+			initiallyExpanded={false}
+			{...props}
+		/>
 		<Markdown source={description} />
 	</div>
 );
