@@ -4,7 +4,7 @@ const Icon = ({ type, className = "" }) => {
 	const faType = iconType(type);
 
 	if (faType) {
-		return <i className={`${faType} ${className}`} aria-hidden="true"></i>;
+		return <i className={`${faType} ${className}`} aria-hidden="true" />;
 	}
 
 	return null;

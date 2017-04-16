@@ -4,8 +4,8 @@ import Markdown from "react-remarkable";
 import Header from "./header";
 import Demos from "./demos";
 
-import intro from "raw!./intro.md";
-import api from "raw!./api.md";
+import intro from "./intro.md";
+import api from "./api.md";
 
 const Root = () => (
 	<div>

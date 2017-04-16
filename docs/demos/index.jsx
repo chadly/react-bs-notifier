@@ -7,7 +7,13 @@ import ThemedAlertDemo from "./themed";
 
 const Demos = () => (
 	<div>
-		<p>Make sure to click the <em>expand</em> link next to each demo to view & edit the code.</p>
+		<p>
+			Make sure to click the
+			{" "}
+			<em>expand</em>
+			{" "}
+			link next to each demo to view & edit the code.
+		</p>
 
 		<AlertListDemo />
 		<hr />

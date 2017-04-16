@@ -13,19 +13,29 @@ export default {
 		extensions: ["", ".js", ".jsx", ".json"]
 	},
 	module: {
-		loaders: [{
-			test: /\.jsx?$/,
-			exclude: /node_modules/,
-			loader: "babel",
-			query: isDebugBuild ? {
-				presets: ["react-hmre"]
-			} : undefined
-		}, {
-			test: /\.css$/,
-			loaders: ["style", "css"]
-		}, {
-			test: /\.json$/,
-			loader: "json"
-		}]
+		loaders: [
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: "babel",
+				query: isDebugBuild
+					? {
+							presets: ["react-hmre"]
+						}
+					: undefined
+			},
+			{
+				test: /\.css$/,
+				loaders: ["style", "css"]
+			},
+			{
+				test: /\.json$/,
+				loader: "json"
+			},
+			{
+				test: /\.(md|example)$/,
+				loader: "raw"
+			}
+		]
 	}
 };

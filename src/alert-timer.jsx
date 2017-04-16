@@ -10,17 +10,11 @@ export default class AlertTimer extends Component {
 	}
 
 	componentDidMount() {
-		this.setupTimer(
-			this.props.timeout,
-			this.props.onDismiss
-		);
+		this.setupTimer(this.props.timeout, this.props.onDismiss);
 	}
 
 	componentWillReceiveProps({ timeout, onDismiss }) {
-		this.setupTimer(
-			timeout,
-			onDismiss
-		);
+		this.setupTimer(timeout, onDismiss);
 	}
 
 	componentWillUnmount() {
@@ -65,7 +59,9 @@ export default class AlertTimer extends Component {
 	}
 
 	render() {
-		const onDismiss = this.props.onDismiss ? this.dismissAlert.bind(this, this.props.onDismiss) : null;
+		const onDismiss = this.props.onDismiss
+			? this.dismissAlert.bind(this, this.props.onDismiss)
+			: null;
 		return <Alert {...this.props} onDismiss={onDismiss} />;
 	}
 }
