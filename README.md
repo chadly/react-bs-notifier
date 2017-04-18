@@ -76,6 +76,28 @@ npm start
 
 This will spin up a webpack dev server on port 1341. Open your browser to [localhost:1341](http://localhost:1341/) and any changes you make will build & refresh the page automatically.
 
+### Linting
+
+To run the linter:
+
+```
+npm run lint
+```
+
+This project uses [prettier for formatting](https://github.com/prettier/prettier) and will fail linting if the code doesn't conform to prettier's output. To automatically fix any formatting issues, run:
+
+```
+npm run lint -- --fix
+```
+
+Or, if you are using an editor that supports [ESLint](http://eslint.org/), just make sure to enable automatically fixing lint errors on save. E.g., in [Visual Studio Code](https://code.visualstudio.com/) with the [ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), make sure this is in your `settings.json`:
+
+```json
+{
+  "eslint.autoFixOnSave": true
+}
+```
+
 ### Deploying Docs to Github Pages
 
 This is mostly a note for me so I don't forget. Run `npm run build --production` and commit the resulting `docs/index.html` & `docs/build.js.*` files to the `gh-pages` branch.
