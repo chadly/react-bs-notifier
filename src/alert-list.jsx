@@ -1,4 +1,5 @@
-import React, { PropTypes as t } from "react";
+import React from "react";
+import * as t from "prop-types";
 
 import Container, { PropTypes as ContainerPropTypes } from "./container";
 import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";

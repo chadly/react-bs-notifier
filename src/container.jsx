@@ -1,4 +1,5 @@
-import React, { PropTypes as t } from "react";
+import React from "react";
+import * as t from "prop-types";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { bootstrap } from "toetag";

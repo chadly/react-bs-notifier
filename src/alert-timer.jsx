@@ -1,4 +1,5 @@
-import React, { Component, PropTypes as t } from "react";
+import React, { Component } from "react";
+import * as t from "prop-types";
 
 import Alert from "./alert";
 
