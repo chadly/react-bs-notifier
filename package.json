@@ -19,7 +19,7 @@
     "start": "webpack-dev-server --progress --inline --hot --content-base docs/ --port 1341",
     "compile": "rimraf lib && babel src -d lib",
     "build": "webpack --progress --bail",
-    "lint": "eslint webpack.config.babel.js src docs --ext=js,jsx",
+    "lint": "eslint src docs --ext=js,jsx",
     "prepublish": "npm run lint && npm run compile"
   },
   "repository": {
@@ -57,7 +57,7 @@
     "react-remarkable": "1.x",
     "rimraf": "2.x",
     "style-loader": "0.13.x",
-    "webpack": "1.x",
-    "webpack-dev-server": "1.x"
+    "webpack": "2.x",
+    "webpack-dev-server": "2.x"
   }
 }
