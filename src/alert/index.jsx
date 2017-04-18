@@ -1,9 +1,7 @@
 import React from "react";
 
 import Icon from "./icon";
-
-import useSheet from "react-jss";
-import styles from "./alert.style";
+import styles from "./styles";
 
 const Alert = ({
 	type = "info",
@@ -44,4 +42,4 @@ const Alert = ({
 	);
 };
 
-export default useSheet(styles)(Alert);
+export default styles(Alert);
