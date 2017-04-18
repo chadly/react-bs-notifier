@@ -13,11 +13,14 @@
     "alerts"
   ],
   "main": "lib/index.js",
+  "module": "es/index.js",
   "author": "Chad Lee <npm@chadly.net>",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot --content-base docs/ --port 1341",
-    "compile": "rimraf lib && babel src -d lib",
+    "compile-cjs": "rimraf lib && cross-env BABEL_ENV=cjs babel src -d lib --copy-files",
+    "compile-es": "rimraf es && babel src -d es --copy-files",
+    "compile": "yarn run compile-cjs && yarn run compile-es",
     "build": "webpack --progress --bail",
     "lint": "eslint src docs --ext=js,jsx",
     "prepublish": "npm run lint && npm run compile"
@@ -47,6 +50,7 @@
     "babel-preset-react-hmre": "1.x",
     "babel-preset-stage-2": "6.x",
     "component-playground": "1.x",
+    "cross-env": "^4.0.0",
     "css-loader": "0.25.x",
     "eslint": "3.x",
     "eslint-config-civicsource": "5.x",
