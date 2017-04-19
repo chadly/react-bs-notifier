@@ -35,7 +35,7 @@
   "dependencies": {
     "prop-types": "^15.5.8",
     "react-addons-css-transition-group": ">=0.14 <16",
-    "react-jss": ">= 5.2 <6",
+    "react-jss": ">= 5.2 <7",
     "toetag": "3.x"
   },
   "peerDependencies": {
