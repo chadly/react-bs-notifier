@@ -13,17 +13,19 @@ const Alert = ({
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
-	const css = `${isDismissable ? classes.dismissable : ""} ${classes[type]} ${classes.alert}`;
-	const dismiss = isDismissable
-		? <button
-				type="button"
-				className={classes.close}
-				title={dismissTitle}
-				onClick={onDismiss}
-			>
-				×
-			</button>
-		: null;
+	const css = `${isDismissable ? classes.dismissable : ""} ${classes[
+		type
+	]} ${classes.alert}`;
+	const dismiss = isDismissable ? (
+		<button
+			type="button"
+			className={classes.close}
+			title={dismissTitle}
+			onClick={onDismiss}
+		>
+			×
+		</button>
+	) : null;
 
 	return (
 		<div>

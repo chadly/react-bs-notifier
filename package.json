@@ -53,7 +53,7 @@
     "cross-env": "^4.0.0",
     "css-loader": "0.25.x",
     "eslint": "3.x",
-    "eslint-config-civicsource": "5.x",
+    "eslint-config-civicsource": "6.x",
     "json-loader": "0.5.x",
     "raw-loader": "0.5.x",
     "react": "15.x",

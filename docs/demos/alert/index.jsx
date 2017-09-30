@@ -6,7 +6,11 @@ import desc from "./description.md";
 
 const AlertDemo = props => (
 	<CodeExample
-		title={<span>Inline <code>Alert</code></span>}
+		title={
+			<span>
+				Inline <code>Alert</code>
+			</span>
+		}
 		codeText={ex}
 		description={desc}
 		{...props}
