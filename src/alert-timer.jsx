@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { oneOf, string, func, bool, number } from "prop-types";
 
 import Alert from "./alert";
 
@@ -65,3 +66,14 @@ export default class AlertTimer extends Component {
 		return <Alert {...this.props} onDismiss={onDismiss} />;
 	}
 }
+
+export const PropTypes = {
+	type: oneOf(["info", "success", "warning", "danger"]),
+	headline: string,
+	onDismiss: func,
+	dismissTitle: string,
+	showIcon: bool,
+	timeout: number
+};
+
+AlertTimer.propTypes = PropTypes;

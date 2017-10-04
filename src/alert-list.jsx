@@ -1,8 +1,17 @@
 import React from "react";
 import { TransitionGroup } from "react-transition-group";
-
-import Container from "./container";
-import Alert from "./alert-timer";
+import {
+	any,
+	arrayOf,
+	func,
+	node,
+	object,
+	oneOfType,
+	shape,
+	string
+} from "prop-types";
+import Container, { PropTypes as ContainerPropTypes } from "./container";
+import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";
 import AlertTransition from "./alert-transition";
 import styles from "./container/styles";
 
@@ -25,5 +34,21 @@ const AlertList = ({ position, alerts, onDismiss, ...props }) => (
 		</TransitionGroup>
 	</Container>
 );
+
+const { timeout, type, headline } = AlertPropTypes;
+
+AlertList.propTypes = {
+	...ContainerPropTypes,
+	alerts: arrayOf(
+		shape({
+			id: any.isRequired,
+			type,
+			headline,
+			message: oneOfType([string, node, object]).isRequired
+		})
+	).isRequired,
+	onDismiss: func,
+	timeout
+};
 
 export default styles(AlertList);
