@@ -22,8 +22,7 @@
     "compile-es": "rimraf es && babel src -d es --copy-files",
     "compile": "npm run compile-cjs && npm run compile-es",
     "build": "webpack --progress --bail",
-    "lint": "eslint src docs --ext=js,jsx",
-    "prepublish": "npm run lint && npm run compile"
+    "lint": "eslint src docs --ext=js,jsx"
   },
   "repository": {
     "type": "git",
