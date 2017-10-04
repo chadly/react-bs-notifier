@@ -1,6 +1,6 @@
 {
   "name": "react-bs-notifier",
-  "version": "5.0.0",
+  "version": "0.0.0",
   "description": "A react component to show growl-like notifications using bootstrap alerts",
   "keywords": [
     "react-component",
@@ -55,6 +55,7 @@
     "eslint": "3.x",
     "eslint-config-civicsource": "6.x",
     "json-loader": "0.5.x",
+    "json-update": "^3.0.0",
     "raw-loader": "0.5.x",
     "react": "16.x",
     "react-dom": "16.x",
