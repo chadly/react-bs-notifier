@@ -1,7 +1,6 @@
 import { bootstrap } from "toetag";
 import useSheet from "react-jss";
-
-const MAGICAL_MAX_HEIGHT = "20em";
+import transitionStyles from "../transition-styles";
 
 export default useSheet({
 	container: {
@@ -30,28 +29,5 @@ export default useSheet({
 		bottom: 0,
 		left: 0
 	},
-	enter: {
-		opacity: 0.01,
-		transform: "translateX(-25%)",
-		maxHeight: 0,
-		overflow: "hidden",
-		transition: ".25s ease-in"
-	},
-	enterActive: {
-		opacity: 1,
-		transform: "translateX(0)",
-		maxHeight: MAGICAL_MAX_HEIGHT
-	},
-	leave: {
-		opacity: 1,
-		transform: "translateX(0)",
-		maxHeight: MAGICAL_MAX_HEIGHT,
-		overflow: "hidden",
-		transition: ".25s ease-out"
-	},
-	leaveActive: {
-		opacity: 0.01,
-		transform: "translateX(25%)",
-		maxHeight: 0
-	}
+	...transitionStyles
 });

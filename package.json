@@ -1,6 +1,6 @@
 {
   "name": "react-bs-notifier",
-  "version": "4.3.2",
+  "version": "5.0.0",
   "description": "A react component to show growl-like notifications using bootstrap alerts",
   "keywords": [
     "react-component",
@@ -33,13 +33,13 @@
     "url": "https://github.com/chadly/react-bs-notifier/issues"
   },
   "dependencies": {
-    "prop-types": "^15.5.8",
-    "react-addons-css-transition-group": ">=0.14 <16",
+    "prop-types": "15.x",
     "react-jss": ">= 5.2 <8",
+    "react-transition-group": "2.x",
     "toetag": "3.x"
   },
   "peerDependencies": {
-    "react": ">=0.14 <16"
+    "react": "16.x"
   },
   "devDependencies": {
     "babel-cli": "6.x",
@@ -49,16 +49,16 @@
     "babel-preset-react": "6.x",
     "babel-preset-react-hmre": "1.x",
     "babel-preset-stage-2": "6.x",
-    "component-playground": "1.x",
+    "component-playground": "3.x",
     "cross-env": "^4.0.0",
     "css-loader": "0.25.x",
     "eslint": "3.x",
     "eslint-config-civicsource": "6.x",
     "json-loader": "0.5.x",
     "raw-loader": "0.5.x",
-    "react": "15.x",
-    "react-dom": "15.x",
-    "react-remarkable": "1.x",
+    "react": "16.x",
+    "react-dom": "16.x",
+    "react-remarkable": ">=1.1.2",
     "rimraf": "2.x",
     "style-loader": "0.13.x",
     "webpack": "2.x",

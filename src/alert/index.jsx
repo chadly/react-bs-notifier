@@ -9,7 +9,7 @@ const Alert = ({
 	headline,
 	onDismiss,
 	dismissTitle = "Dismiss",
-	sheet: { classes },
+	classes,
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
@@ -29,7 +29,6 @@ const Alert = ({
 
 	return (
 		<div>
-			{" "}
 			{/* this classless container div is used by the transition group above... don't delete it */}
 			<div className={css}>
 				{dismiss}

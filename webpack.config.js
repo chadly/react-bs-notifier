@@ -19,12 +19,7 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				loader: "babel-loader",
-				include: [path.resolve("./src"), path.resolve("./docs")],
-				query: isDebugBuild
-					? {
-							presets: ["react-hmre"]
-						}
-					: undefined
+				include: [path.resolve("./src"), path.resolve("./docs")]
 			},
 			{
 				test: /\.css$/,
