@@ -38,7 +38,7 @@
     "toetag": "3.x"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": ">=15 <17"
   },
   "devDependencies": {
     "babel-cli": "6.x",
