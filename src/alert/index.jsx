@@ -9,7 +9,7 @@ const Alert = ({
 	headline,
 	onDismiss,
 	dismissTitle = "Dismiss",
-	classes,
+	sheet: { classes },
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;

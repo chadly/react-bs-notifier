@@ -15,8 +15,14 @@ import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";
 import AlertTransition from "./alert-transition";
 import styles from "./container/styles";
 
-const AlertList = ({ position, alerts, onDismiss, ...props }) => (
-	<Container position={position}>
+const AlertList = ({
+	position,
+	alerts,
+	onDismiss,
+	sheet: { classes },
+	...props
+}) => (
+	<Container position={position} className={classes.container}>
 		<TransitionGroup>
 			{alerts.map(item => {
 				const dismiss = onDismiss ? () => onDismiss(item) : null;

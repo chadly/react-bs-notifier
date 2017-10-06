@@ -6,7 +6,7 @@ import useSheet from "react-jss";
 
 const timeout = { enter: ENTER_TIMEOUT, exit: EXIT_TIMEOUT };
 
-const AlertTransition = ({ classes, ...props }) =>
+const AlertTransition = ({ sheet: { classes }, ...props }) =>
 	props && props.children ? (
 		<CSSTransition timeout={timeout} classNames={classes} {...props} />
 	) : null;
