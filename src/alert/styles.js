@@ -1,6 +1,6 @@
 import { bootstrap } from "toetag";
 import useSheet from "react-jss";
-import { transitionStyles } from "../alert-transition";
+import transitionStyles from "../transition-styles";
 
 export default useSheet({
 	...transitionStyles,
