@@ -8,7 +8,13 @@ const timeout = { enter: ENTER_TIMEOUT, exit: EXIT_TIMEOUT };
 
 const AlertTransition = ({ sheet: { classes }, ...props }) =>
 	props && props.children ? (
-		<CSSTransition timeout={timeout} classNames={classes} {...props} />
+		<CSSTransition
+			timeout={timeout}
+			classNames={classes}
+			onExited={props.onExited}
+		>
+			{props.children}
+		</CSSTransition>
 	) : null;
 
 export default useSheet(transitionStyles)(AlertTransition);
