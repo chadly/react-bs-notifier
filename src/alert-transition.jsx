@@ -6,15 +6,9 @@ import useSheet from "react-jss";
 
 const timeout = { enter: ENTER_TIMEOUT, exit: EXIT_TIMEOUT };
 
-const AlertTransition = ({ sheet: { classes }, ...props }) =>
-	props && props.children ? (
-		<CSSTransition
-			timeout={timeout}
-			classNames={classes}
-			onExited={props.onExited}
-		>
-			{props.children}
-		</CSSTransition>
-	) : null;
+const AlertTransition = ({ sheet: { classes }, ...props }) => {
+	delete props.classes; // if it is there (it may not be depending on which version of JSS is used)
+	return <CSSTransition timeout={timeout} classNames={classes} {...props} />;
+};
 
 export default useSheet(transitionStyles)(AlertTransition);
