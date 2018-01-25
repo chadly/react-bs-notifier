@@ -9,13 +9,13 @@ const Alert = ({
 	headline,
 	onDismiss,
 	dismissTitle = "Dismiss",
-	sheet: { classes },
+	classes,
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
-	const css = `${isDismissable ? classes.dismissable : ""} ${classes[type]} ${
-		classes.alert
-	}`;
+	const css = `${isDismissable ? classes.dismissable : ""} ${classes[
+		type
+	]} ${classes.alert}`;
 	const dismiss = isDismissable ? (
 		<button
 			type="button"
