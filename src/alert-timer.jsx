@@ -14,8 +14,8 @@ export default class AlertTimer extends Component {
 		this.setupTimer(this.props.timeout, this.props.onDismiss);
 	}
 
-	componentWillReceiveProps({ timeout, onDismiss }) {
-		this.setupTimer(timeout, onDismiss);
+	componentDidUpdate() {
+		this.setupTimer(this.props.timeout, this.props.onDismiss);
 	}
 
 	componentWillUnmount() {
