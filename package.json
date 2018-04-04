@@ -55,7 +55,7 @@
     "json-loader": "0.5.x",
     "json-update": "^3.0.0",
     "raw-loader": "0.5.x",
-    "react": "16.x",
+    "react": ">=16.3 <18",
     "react-dom": "16.x",
     "react-remarkable": ">=1.1.2",
     "rimraf": "2.x",
