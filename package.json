@@ -53,7 +53,6 @@
     "eslint": "3.x",
     "eslint-config-civicsource": "6.x",
     "json-loader": "0.5.x",
-    "json-update": "^3.0.0",
     "raw-loader": "0.5.x",
     "react": ">=16.3 <18",
     "react-dom": "16.x",
