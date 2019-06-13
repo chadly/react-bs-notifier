@@ -34,7 +34,7 @@ export default useSheet({
 	icon: {
 		verticalAlign: "top",
 		fontSize: bootstrap.fontSizeH4,
-		paddingRight: bootstrap.paddingLargeHorizontal,
+		marginRight: bootstrap.paddingLargeHorizontal,
 		opacity: 0.2
 	},
 	headline: {

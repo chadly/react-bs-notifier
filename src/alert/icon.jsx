@@ -1,18 +1,28 @@
 import React from "react";
-
+//import { FaCheck, FaExclamationCircle, FaExclamationTriangle, FaInfo } from "react-icons/fa";
 
 // Import optional react-icons library
-import("react-icons/fa").then(fa => {
-  const { FaCheck, FaExclamationCircle, FaExclamationTriangle, FaInfo } = fa;
-}).catch(err => {
-  const FaCheck = null;
-});
+let FontAwesome;
+
+try {
+  FontAwesome = require("react-icons/fa");
+} catch (err) {
+  FontAwesome = false;
+};
+
+// Import optional react-icons library
+//import("react-icons/fa").then(fa => {
+//  const { FaCheck, FaExclamationCircle, FaExclamationTriangle, FaInfo } = fa;
+//  console.log(FaCheck);
+//}).catch(err => {
+//  const FaCheck = null;
+//});
 
 const Icon = ({ type, className = "" }) => {
 	const faType = iconType(type);
 
 	if (faType) {
-	  if (FaCheck) {
+	  if (FontAwesome) {
 	    return <ReactIcon type={type} className={className} />
 	  } else {
   		return <i className={`${faType} ${className}`} aria-hidden="true" />;
@@ -23,6 +33,12 @@ const Icon = ({ type, className = "" }) => {
 };
 
 const ReactIcon = ({ type, className = ""}) => {
+  const {
+    FaCheck, 
+    FaExclamationCircle, 
+    FaExclamationTriangle, 
+    FaInfo } = FontAwesome;
+
   switch (type) {
     case "warning":
       return <FaExclamationTriangle className={className} aria-hidden="true" />;
