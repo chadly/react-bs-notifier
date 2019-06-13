@@ -17,7 +17,7 @@ const Icon = ({ type, className = "" }) => {
 	    return <ReactIcon type={type} className={className} />
 	  } else {
   		return <i className={`${faType} ${className}`} aria-hidden="true" />;
-  }
+    }
 	}
 
 	return null;
