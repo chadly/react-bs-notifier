@@ -1,5 +1,4 @@
 import React from "react";
-//import { FaCheck, FaExclamationCircle, FaExclamationTriangle, FaInfo } from "react-icons/fa";
 
 // Import optional react-icons library
 let FontAwesome;
@@ -9,14 +8,6 @@ try {
 } catch (err) {
   FontAwesome = false;
 };
-
-// Import optional react-icons library
-//import("react-icons/fa").then(fa => {
-//  const { FaCheck, FaExclamationCircle, FaExclamationTriangle, FaInfo } = fa;
-//  console.log(FaCheck);
-//}).catch(err => {
-//  const FaCheck = null;
-//});
 
 const Icon = ({ type, className = "" }) => {
 	const faType = iconType(type);
