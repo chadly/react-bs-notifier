@@ -11,14 +11,12 @@ const AlertContainer = ({ position = "top-right", children, classes }) => {
 	return (
 		<div className={`${classes.container} ${classes[position]}`}>
 			<TransitionGroup>
-				{Children.map(
-					children,
-					child =>
-						child ? (
-							<AlertTransition key={child.props.id}>
-								{cloneElement(child)}
-							</AlertTransition>
-						) : null
+				{Children.map(children, child =>
+					child ? (
+						<AlertTransition key={child.props.id}>
+							{cloneElement(child)}
+						</AlertTransition>
+					) : null
 				)}
 			</TransitionGroup>
 		</div>
