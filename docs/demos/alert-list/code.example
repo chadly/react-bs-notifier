@@ -1,135 +1,128 @@
-class NotifierGenerator extends React.Component {
-	constructor(props) {
-		super(props);
+function NotifierGenerator() {
+	const [position, setPosition] = React.useState("top-right");
+	const [alerts, setAlerts] = React.useState([]);
+	const [alertTimeout, setAlertTimeout] = React.useState(0);
+	const [newMessage, setNewMessage] = React.useState(
+		"This is a test of the Emergency Broadcast System. This is only a test."
+	);
 
-		this.state = {
-			position: "top-right",
-			alerts: [],
-			timeout: 0,
-			newMessage: "This is a test of the Emergency Broadcast System. This is only a test."
-		};
-	}
+	const generate = React.useCallback(
+		type => {
+			setAlerts(alerts => [
+				...alerts,
+				{
+					id: new Date().getTime(),
+					type: type,
+					headline: `Whoa, ${type}!`,
+					message: newMessage
+				}
+			]);
+		},
+		[newMessage]
+	);
 
-	generate(type) {
-		const newAlert ={
-			id: (new Date()).getTime(),
-			type: type,
-			headline: `Whoa, ${type}!`,
-			message: this.state.newMessage
-		};
-
-		this.setState({
-			alerts: [...this.state.alerts, newAlert]
+	const onDismissed = React.useCallback(alert => {
+		setAlerts(alerts => {
+			const idx = alerts.indexOf(alert);
+			if (idx < 0) return alerts;
+			return [...alerts.slice(0, idx), ...alerts.slice(idx + 1)];
 		});
-	}
+	}, []);
 
-	onAlertDismissed(alert) {
-		const alerts = this.state.alerts;
+	const clearAlerts = React.useCallback(() => setAlerts([]), []);
 
-		// find the index of the alert that was dismissed
-		const idx = alerts.indexOf(alert);
+	const onTimeoutChange = React.useCallback(
+		({ target: { value } }) => setAlertTimeout(+value * 1000),
+		[]
+	);
 
-		if (idx >= 0) {
-			this.setState({
-				// remove the alert from the array
-				alerts: [...alerts.slice(0, idx), ...alerts.slice(idx + 1)]
-			});
-		}
-	}
+	const onNewMessageChange = React.useCallback(
+		({ target: { value } }) => setNewMessage(value),
+		[]
+	);
 
-	clearAlerts() {
-		this.setState({
-			alerts: []
-		});
-	}
+	const onPositionChange = React.useCallback(
+		({ target: { value } }) => setPosition(value),
+		[]
+	);
 
-	onTimeoutChange({ target: { value } }) {
-		this.setState({ timeout: (+value) * 1000 });
-	}
+	const clearAllButton = alerts.length ? (
+		<button className="btn btn-link" onClick={clearAlerts}>
+			Clear all alerts
+		</button>
+	) : null;
 
-	onNewMessageChange({ target: { value } }) {
-		this.setState({ newMessage: value });
-	}
+	return (
+		<>
+			<AlertList
+				position={position}
+				alerts={alerts}
+				timeout={alertTimeout}
+				dismissTitle="Begone!"
+				onDismiss={onDismissed}
+			/>
 
-	onPositionChange({ target: { value } }) {
-		this.setState({
-			position: value
-		});
-	}
-
-	render() {
-		const clearAllButton = this.state.alerts.length ? (
-			<button
-				className="btn btn-link"
-				onClick={this.clearAlerts.bind(this)}>Clear all alerts</button>
-		) : null;
-
-		return (
-			<div>
-				<AlertList
-					position={this.state.position}
-					alerts={this.state.alerts}
-					timeout={this.state.timeout}
-					dismissTitle="Begone!"
-					onDismiss={this.onAlertDismissed.bind(this)}
+			<div className="form-group">
+				<label htmlFor="new-message-control">Message</label>
+				<textarea
+					id="new-message-control"
+					placeholder="Something happened, here are the deets"
+					className="form-control"
+					value={newMessage}
+					onChange={onNewMessageChange}
 				/>
+			</div>
 
-				<div className="form-group">
-					<label htmlFor="new-message-control">Message</label>
-					<textarea
-						id="new-message-control"
-						placeholder="Something happened, here are the deets"
-						className="form-control"
-						value={this.state.newMessage}
-						onChange={this.onNewMessageChange.bind(this)}
-					/>
-				</div>
-
-				<div className="form-group">
-					<div className="form-inline">
-						<label htmlFor="timeout-control" className="control-label">Auto-dismiss after</label>
-						{" "}
-						<div className="input-group">
-							<input
-								id="timeout-control"
-								className="form-control"
-								type="number"
-								value={this.state.timeout / 1000}
-								onChange={this.onTimeoutChange.bind(this)}
-							/>
-							<span className="input-group-addon">seconds</span>
+			<div className="form-row">
+				<div className="form-group col-md-6">
+					<label htmlFor="timeout-control" className="control-label">
+						Auto-dismiss after
+					</label>
+					<div className="input-group">
+						<input
+							id="timeout-control"
+							className="form-control"
+							type="number"
+							value={alertTimeout / 1000}
+							onChange={onTimeoutChange}
+						/>
+						<div className="input-group-append">
+							<span className="input-group-text">seconds</span>
 						</div>
-
-						{" "}
-
-						<label htmlFor="position-control">Position</label>
-						{" "}
-						<select onChange={this.onPositionChange.bind(this)} className="form-control" id="position-control">
-							{["top-right", "top-left", "bottom-right", "bottom-left"].map(p => (
-								<option key={p} value={p}>{p}</option>
-							))}
-						</select>
 					</div>
 				</div>
 
-				<div className="form-group text-right">
-					{clearAllButton}
-					<div className="btn-group">
-						{["info", "success", "warning", "danger"].map(type => (
-							<button
-								key={type}
-								type="button"
-								className={`btn btn-${type}`}
-								onClick={this.generate.bind(this, type)}
-							>
-								generate {" "} {type}
-							</button>
+				<div className="form-group col-md-6">
+					<label htmlFor="position-control">Position</label>
+					<select
+						onChange={onPositionChange}
+						className="form-control"
+						id="position-control"
+					>
+						{["top-right", "top-left", "bottom-right", "bottom-left"].map(p => (
+							<option key={p} value={p}>
+								{p}
+							</option>
 						))}
-					</div>
+					</select>
 				</div>
 			</div>
-		);
-	}
-}
 
-ReactDOM.render(<NotifierGenerator />, mountNode);
+			<div className="form-group text-right">
+				{clearAllButton}
+				<div className="btn-group">
+					{["info", "success", "warning", "danger"].map(type => (
+						<button
+							key={type}
+							type="button"
+							className={`btn btn-${type}`}
+							onClick={() => generate(type)}
+						>
+							generate {type}
+						</button>
+					))}
+				</div>
+			</div>
+		</>
+	);
+}

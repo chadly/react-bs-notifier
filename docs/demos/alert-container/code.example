@@ -1,78 +1,70 @@
-class MyComponent extends React.Component {
-	constructor(props) {
-		super(props);
+function MyComponent() {
+	const [showing, setShowing] = React.useState({
+		info: false,
+		success: false,
+		warning: false,
+		danger: false
+	});
 
-		this.state = {
-			isShowingInfoAlert: false,
-			isShowingSuccessAlert: false,
-			isShowingWarningAlert: false,
-			isShowingDangerAlert: false
-		};
-	}
+	const onAlertToggle = React.useCallback(
+		type => setShowing(s => ({ ...s, [type]: !s[type] })),
+		[]
+	);
 
-	onAlertToggle(type) {
-		this.setState({
-			[type]: !this.state[type]
-		});
-	}
+	return (
+		<div>
+			<AlertContainer position="top-left">
+				{showing.info ? (
+					<Alert type="info" headline="Oh Some Info">
+						Something happened of only moderate importance.
+					</Alert>
+				) : null}
 
-	render() {
-		return (
-			<div>
-				<AlertContainer position="top-left">
-					{this.state.isShowingInfoAlert ? (
-						<Alert type="info" headline="Oh Some Info">
-							Something happened of only moderate importance.
-						</Alert>
-					) : null}
+				{showing.success ? (
+					<Alert type="success" headline="Oh My Something Nice">
+						Something amazing has happened!
+					</Alert>
+				) : null}
 
-					{this.state.isShowingSuccessAlert ? (
-						<Alert type="success" headline="Oh My Something Nice">
-							Something amazing has happened!
-						</Alert>
-					) : null}
+				{showing.warning ? (
+					<Alert type="warning" headline="Oh Uhh Hmm">
+						Something bad may be about to happen.
+					</Alert>
+				) : null}
 
-					{this.state.isShowingWarningAlert ? (
-						<Alert type="warning" headline="Oh Uhh Hmm">
-							Something bad may be about to happen.
-						</Alert>
-					) : null}
+				{showing.danger ? (
+					<Alert type="danger" headline="Oh Shit">
+						Something bad has happened. Panic!
+					</Alert>
+				) : null}
+			</AlertContainer>
 
-					{this.state.isShowingDangerAlert ? (
-						<Alert type="danger" headline="Oh Shit">
-							Something bad has happened. Panic!
-						</Alert>
-					) : null}
-				</AlertContainer>
+			<div className="btn-group">
+				<button className="btn btn-info" onClick={() => onAlertToggle("info")}>
+					Toggle Info Alert
+				</button>
 
-				<div className="btn-group">
-					<button
-						className="btn btn-info"
-						onClick={() => this.onAlertToggle("isShowingInfoAlert")}>
-						Toggle Info Alert
-					</button>
+				<button
+					className="btn btn-success"
+					onClick={() => onAlertToggle("success")}
+				>
+					Toggle Success Alert
+				</button>
 
-					<button
-						className="btn btn-success"
-						onClick={() => this.onAlertToggle("isShowingSuccessAlert")}>
-						Toggle Success Alert
-					</button>
+				<button
+					className="btn btn-warning"
+					onClick={() => onAlertToggle("warning")}
+				>
+					Toggle Warning Alert
+				</button>
 
-					<button
-						className="btn btn-warning"
-						onClick={() => this.onAlertToggle("isShowingWarningAlert")}>
-						Toggle Warning Alert
-					</button>
-
-					<button
-						className="btn btn-danger"
-						onClick={() => this.onAlertToggle("isShowingDangerAlert")}>
-						Toggle Danger Alert
-					</button>
-				</div>
+				<button
+					className="btn btn-danger"
+					onClick={() => onAlertToggle("danger")}
+				>
+					Toggle Danger Alert
+				</button>
 			</div>
-		);
-	}
+		</div>
+	);
 }
-
-ReactDOM.render(<MyComponent />, mountNode);

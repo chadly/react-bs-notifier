@@ -11,10 +11,10 @@ const ThemedAlertDemo = props => (
 				Themed <code>Alert</code>
 			</span>
 		}
-		codeText={ex}
+		code={ex}
 		description={desc}
+		noInline
 		{...props}
-		noRender={false}
 	/>
 );
 

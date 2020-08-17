@@ -7,7 +7,7 @@ import desc from "./description.md";
 const AlertListDemo = props => (
 	<CodeExample
 		title={<code>AlertList</code>}
-		codeText={ex}
+		code={ex}
 		description={desc}
 		{...props}
 	/>

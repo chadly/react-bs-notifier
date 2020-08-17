@@ -11,7 +11,7 @@ const AlertDemo = props => (
 				Inline <code>Alert</code>
 			</span>
 		}
-		codeText={ex}
+		code={ex}
 		description={desc}
 		{...props}
 		noRender

@@ -50,10 +50,8 @@ const useStyleOverrides = createUseStyles({
 	}
 });
 
-const themedExample = (
-    <ThemedAlert type="success" headline="What have I done">
-        This terrible power should have never been unleashed
-    </ThemedAlert>
+render(
+	<ThemedAlert type="success" headline="What have I done">
+		This terrible power should have never been unleashed
+	</ThemedAlert>
 );
-
-ReactDOM.render(themedExample, mountNode);
