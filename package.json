@@ -22,7 +22,7 @@
     "compile-cjs": "rimraf lib && cross-env BABEL_ENV=cjs babel src -d lib",
     "compile-es": "rimraf es && babel src -d es",
     "compile": "npm run compile-cjs && npm run compile-es",
-    "prepublish": "npm run lint && npm run compile",
+    "prepublishOnly": "npm run lint && npm run compile",
     "build": "webpack --progress --bail",
     "lint": "eslint --ignore-pattern lib --ignore-pattern es ."
   },
