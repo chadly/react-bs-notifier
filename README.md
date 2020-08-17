@@ -1,6 +1,6 @@
 # React Bootstrap Notifier
 
-> A react component to show growl-like notifications using [bootstrap alerts](http://getbootstrap.com/components/#alerts).
+> A react component to show growl-like notifications using [bootstrap alerts](https://getbootstrap.com/docs/4.5/components/alerts/).
 
 See a [live demo](https://chadly.github.io/react-bs-notifier/).
 
