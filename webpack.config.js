@@ -1,23 +1,21 @@
+/* eslint-disable import/no-commonjs */
+
 const path = require("path");
 
-// "production" build is the build deployed to github pages
-const NODE_ENV = process.env.NODE_ENV;
-const isDebugBuild = NODE_ENV != "production";
-
 module.exports = {
-	entry: "./docs/index.jsx",
+	entry: "./docs/index.js",
 	output: {
 		path: path.resolve("./docs"),
 		filename: "build.js"
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: [".js", ".jsx", ".json"]
+		extensions: [".js", ".json"]
 	},
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
+				test: /\.js$/,
 				loader: "babel-loader",
 				include: [path.resolve("./src"), path.resolve("./docs")]
 			},

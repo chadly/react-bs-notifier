@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import { Alert, AlertList, AlertContainer } from "../../src";
-import useSheet from "react-jss";
+import { createUseStyles } from "react-jss";
 import Markdown from "react-remarkable";
 
 import "./code.css";
@@ -11,7 +11,14 @@ const CodeExample = ({ title, description, ...props }) => (
 	<div>
 		<h3>{title}</h3>
 		<Playground
-			scope={{ React, ReactDOM, Alert, AlertList, AlertContainer, useSheet }}
+			scope={{
+				React,
+				ReactDOM,
+				Alert,
+				AlertList,
+				AlertContainer,
+				createUseStyles
+			}}
 			noRender={false}
 			theme="solarized dark"
 			collapsableCode

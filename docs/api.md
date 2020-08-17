@@ -88,6 +88,12 @@ An optional timeout (in milliseconds) before this alert will be automatically di
 
 ---
 
+#### `classes`
+
+JSS style overrides for the component. See the _Themed Alert_ example above for more information.
+
+---
+
 ### `AlertContainer` Props
 
 The `AlertContainer` will render it's child `Alert`s in one of the corners of the page. It takes the following `props`:

@@ -1,2 +1,5 @@
 /src
 /docs
+babel.config.json
+webpack.config.js
+.eslintrc.js

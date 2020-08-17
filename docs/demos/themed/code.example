@@ -1,6 +1,9 @@
-const { Component } = React;
+const ThemedAlert = props => {
+	const classes = useStyleOverrides();
+	return <Alert {...props} classes={classes} />;
+};
 
-const styles = {
+const useStyleOverrides = createUseStyles({
 	alert: {
 		composes: "alert",
 		marginBottom: 6,
@@ -45,9 +48,7 @@ const styles = {
 	body: {
 		maxWidth: "40em"
 	}
-};
-
-const ThemedAlert = useSheet(styles)(Alert);
+});
 
 const themedExample = (
     <ThemedAlert type="success" headline="What have I done">
