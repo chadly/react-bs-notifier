@@ -1,0 +1,57 @@
+name: Documentation
+on:
+  release:
+    types: [published]
+
+jobs:
+  docfx:
+    name: Deploy Docs
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Main Branch
+      uses: actions/checkout@v2
+
+    - name: Get Version
+      id: get_version
+      run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
+
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: Cache Dependencies
+      uses: actions/cache@v2
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-deps-
+
+    - name: Install dependencies
+      run: npm i
+
+    - name: Build Documentation
+      run: npm run build --production
+
+    - name: Checkout gh-pages Branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Stage files for commit
+      working-directory: gh-pages
+      run: |
+        cp ../docs/index.html .
+        cp ../docs/build.js .
+        cp ../docs/build.js.map .
+
+    - name: Commit doc assets
+      working-directory: gh-pages
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add .
+        git diff-index --quiet HEAD || git commit -m "Documentation v${{ steps.get_version.outputs.version }}"
+        git push

@@ -97,7 +97,3 @@ Or, if you are using an editor that supports [ESLint](http://eslint.org/), just 
   "eslint.autoFixOnSave": true
 }
 ```
-
-### Deploying Docs to Github Pages
-
-This is mostly a note for me so I don't forget. Run `npm run build --production` and commit the resulting `docs/index.html` & `docs/build.js.*` files to the `gh-pages` branch.
