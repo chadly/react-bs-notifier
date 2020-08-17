@@ -90,7 +90,21 @@ An optional timeout (in milliseconds) before this alert will be automatically di
 
 #### `classes`
 
-JSS style overrides for the component. See the _Themed Alert_ example above for more information.
+JSS style overrides for the component. The following classes can be overridden:
+
+* `alert`: CSS class applied to the root `div` of the `Alert`
+* `info`: CSS class applied to the root `div` for `info` alerts
+* `success`: CSS class applied to the root `div` for `success` alerts
+* `warning`: CSS class applied to the root `div` for `warning` alerts
+* `danger`: CSS class applied to the root `div` for `danger` alerts
+* `dismissable`: CSS class applied to the root `div` for alerts that can be dismissed
+* `close`: CSS class applied to the _dismiss_ button
+* `icon`: CSS class applied to the alert type icon
+* `msgContainer`: CSS class applied to the container holding the headline and message
+* `headline`: CSS class applied to the headline element (if provided)
+* `body`: CSS class applied to the message element itself
+
+See the _Themed Alert_ example above.
 
 ---
 
